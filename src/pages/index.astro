@@ -87,13 +87,11 @@ body{
 .nav-link:focus-visible{outline:2px solid var(--g10);outline-offset:3px}
 
 /* hero */
-.hero{position:relative;background:var(--g12);color:#fff;overflow:hidden}
+.hero{position:relative;background:var(--g11);color:#fff;overflow:hidden}
 .hero-grid{
   position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
-  background-size:40px 40px;
+  background-image: radial-gradient(rgba(255,255,255,0.18) 1.5px, transparent 1.5px);
+  background-size:32px 32px;
   mask-image:linear-gradient(to bottom, #000 0%, transparent 85%);
 }
 .hero-inner{position:relative;max-width:720px;margin:0 auto;padding:100px 24px 96px;text-align:center}
