@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Six Years Out — the timeline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#FAF4EA;
+  --ink:#12283D;
+  --ink-soft:#4A5C70;
+  --ink-faint:#7A8899;
+  --rule:#E4D9C6;
+  --g6:#E6F1FB;
+  --g7:#B5D4F4;
+  --g8:#85B7EB;
+  --g9:#378ADD;
+  --g10:#185FA5;
+  --g11:#0C447C;
+  --g12:#042C53;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Inter,system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:860px;margin:0 auto;padding:56px 24px 40px}
+
+.intro{text-align:center;max-width:520px;margin:0 auto 64px}
+.intro h1{font-family:Fraunces,serif;font-weight:600;font-size:44px;line-height:1.1;margin:0 0 12px;letter-spacing:-0.01em}
+.intro .tag{font-family:Fraunces,serif;font-size:19px;color:var(--ink-soft);margin:0 0 18px}
+.intro .lede{font-size:15px;color:var(--ink-soft);margin:0 0 24px}
+.jump{
+  display:inline-block;font-size:14px;padding:10px 18px;border-radius:8px;
+  border:1px solid var(--g10);color:var(--g10);text-decoration:none;background:transparent;
+}
+.jump:hover{background:#fff}
+.jump:focus-visible{outline:2px solid var(--g10);outline-offset:2px}
+
+.line{position:relative}
+.spine{
+  position:absolute;left:50%;transform:translateX(-50%);width:14px;border-radius:7px;z-index:0;
+  background:linear-gradient(to bottom,var(--g12),var(--g11),var(--g10),var(--g9),var(--g8),var(--g7),var(--g6));
+}
+.row{
+  display:grid;grid-template-columns:minmax(0,1fr) 100px minmax(0,1fr);
+  align-items:start;position:relative;z-index:1;
+}
+.rail{display:flex;justify-content:center}
+.dot{
+  width:64px;height:64px;border-radius:50%;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  font-family:Fraunces,serif;font-size:27px;font-weight:600;
+}
+.dot.pale{border:1px solid var(--g9)}
+.block{padding-bottom:52px}
+.block.right{text-align:right}
+.block h2{font-family:Fraunces,serif;font-weight:600;font-size:22px;line-height:1.25;margin:6px 0 4px}
+.block .say{font-family:Fraunces,serif;font-size:15px;color:var(--ink-soft);margin:0 0 16px}
+.block h3{font-size:15px;font-weight:500;margin:16px 0 4px}
+.block p{font-size:14px;line-height:1.55;color:var(--ink-soft);margin:0 0 4px}
+.more{
+  display:inline-block;margin-top:18px;font-size:13px;text-decoration:none;
+  padding:7px 14px;border-radius:8px;border:1px solid #C9B99E;color:var(--ink);
+}
+.more:hover{background:#fff}
+.more:focus-visible{outline:2px solid var(--g10);outline-offset:2px}
+
+.key{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding-top:12px;position:relative;z-index:1}
+.chip{
+  padding:8px 15px;border-radius:20px;font-size:13px;
+  background:#fff;color:var(--ink-faint);border:1px solid var(--rule);
+}
+.chip b{display:block;font-weight:500;font-size:11px;margin-top:1px}
+.chip.on{background:var(--g6);color:var(--g11);border-color:var(--g7)}
+
+.foot{text-align:center;padding-top:22px;position:relative;z-index:1}
+.foot .up{font-family:Fraunces,serif;font-size:17px;margin:6px 0 0}
+.foot .sub{font-size:13px;color:var(--ink-soft);margin:2px 0 0}
+
+@media (max-width:640px){
+  .wrap{padding:36px 16px 32px}
+  .intro h1{font-size:34px}
+  .row{grid-template-columns:64px minmax(0,1fr);gap:14px}
+  .spine{left:32px}
+  .rail{justify-content:flex-start}
+  .block.right{text-align:left}
+  .row .rail{order:1}
+  .row .block{order:2}
+  .row > .block:first-child{order:2}
+  .row > div:empty{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="intro">
+  <h1>Six Years Out</h1>
+  <p class="tag">You're six years out. Or seven. Or four.</p>
+  <p class="lede">Everything schools tell you about college, they tell you too late. This is the whole thing laid out early — from 6th grade at the bottom to college at the top.</p>
+  <a class="jump" href="#start">Start at the beginning</a>
+</header>
+
+<div class="line">
+<div class="spine" id="spine"></div>
+
+<div class="row">
+  <div></div>
+  <div class="rail">
+    <div class="dot" id="top-dot" style="background:var(--g12)">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+        <path d="M12 4 2 9l10 5 10-5-10-5Z"/><path d="M6 11.5V16c0 1.6 2.7 3 6 3s6-1.4 6-3v-4.5"/>
+        <path d="M20.6 8.4v5.2"/><circle cx="20.6" cy="14.8" r="1.2" fill="#fff" stroke="none"/>
+      </svg>
+    </div>
+  </div>
+  <div class="block">
+    <h2>College</h2>
+    <p class="say">This is what everything below is building toward.</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="block right">
+    <h2>You submit your applications</h2>
+    <p class="say">Senior year still counts, all of it.</p>
+    <h3 style="color:var(--g12)">What to do now</h3>
+    <p>Write the essays over the summer, before school starts</p>
+    <p>Ask for recommendation letters early in the fall</p>
+    <h3 style="color:var(--g12)">What most people get wrong</h3>
+    <p>Writing the essays in October instead. They're the only part of the application you fully control, and panic wastes that</p>
+    <h3 style="color:var(--g12)">What counts</h3>
+    <p>Senior grades — offers can still be withdrawn</p>
+    <h3 style="color:var(--g12)">Tests and deadlines</h3>
+    <p>One last SAT or ACT retake in the fall, if you want it</p>
+    <p>Financial aid forms open in the fall</p>
+    <a class="more" href="/grades/12">How to: 12th grade →</a>
+  </div>
+  <div class="rail"><div class="dot" style="background:var(--g12);color:#fff">12</div></div>
+  <div></div>
+</div>
+
+<div class="row">
+  <div></div>
+  <div class="rail"><div class="dot" style="background:var(--g11);color:#fff">11</div></div>
+  <div class="block">
+    <h2>The year that carries the most weight</h2>
+    <p class="say">Tests, hardest classes, and the teachers who write about you.</p>
+    <h3 style="color:var(--g11)">What to do now</h3>
+    <p>Pick the SAT or the ACT — not both</p>
+    <p>Get to know two teachers well enough that they could describe you</p>
+    <h3 style="color:var(--g11)">What most people get wrong</h3>
+    <p>Taking more hard classes than you can actually do well in. A heroic schedule you drowned in helps nobody</p>
+    <h3 style="color:var(--g11)">What counts</h3>
+    <p>Junior grades weigh more than any other year</p>
+    <h3 style="color:var(--g11)">Tests and deadlines</h3>
+    <p>The October PSAT is the one that qualifies for National Merit</p>
+    <p>SAT or ACT in spring, AP exams in May</p>
+    <a class="more" href="/grades/11">How to: 11th grade →</a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="block right">
+    <h2>Go deeper, not wider</h2>
+    <p class="say">Get good at something instead of joining a fifth club.</p>
+    <h3 style="color:var(--g10)">What to do now</h3>
+    <p>Take a free practice SAT and ACT to see which one suits you</p>
+    <p>Look up what a college application actually contains</p>
+    <h3 style="color:var(--g10)">What most people get wrong</h3>
+    <p>Worrying about a PSAT score that doesn't count, while skipping the practice tests that would actually tell you something</p>
+    <h3 style="color:var(--g10)">What counts</h3>
+    <p>First real leadership in something you've already done a year</p>
+    <h3 style="color:var(--g10)">Tests and deadlines</h3>
+    <p>PSAT 10 in the spring, AP exams in May</p>
+    <a class="more" href="/grades/10">How to: 10th grade →</a>
+  </div>
+  <div class="rail"><div class="dot" style="background:var(--g10);color:#fff">10</div></div>
+  <div></div>
+</div>
+
+<div class="row">
+  <div></div>
+  <div class="rail"><div class="dot" style="background:var(--g9);color:var(--g12)">9</div></div>
+  <div class="block">
+    <h2>Your transcript starts</h2>
+    <p class="say">The first year colleges will actually see.</p>
+    <h3 style="color:var(--g10)">What to do now</h3>
+    <p>Pick one or two things you'd still want to be doing as a senior</p>
+    <p>Keep a running list of what you do — you'll forget it by senior year</p>
+    <h3 style="color:var(--g10)">What most people get wrong</h3>
+    <p>Joining eight clubs and quitting seven. Four years of one thing is worth more than one year of four things</p>
+    <h3 style="color:var(--g10)">What counts</h3>
+    <p>Every grade from here is part of your GPA</p>
+    <h3 style="color:var(--g10)">Tests and deadlines</h3>
+    <p>Some schools give the PSAT 8/9 — practice, and nobody else sees it</p>
+    <a class="more" href="/grades/9">How to: 9th grade →</a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="block right">
+    <h2>A few things genuinely help</h2>
+    <p class="say">Not much counts yet. Not nothing, either.</p>
+    <h3 style="color:var(--g10)">What to do now</h3>
+    <p>Take Algebra I if you can — it's what makes calculus reachable later</p>
+    <p>Read for fun constantly, which is the best long-run test prep there is</p>
+    <h3 style="color:var(--g10)">What most people get wrong</h3>
+    <p>Picking high school classes without realizing it's a four-year decision. This is how people end up locked out of calculus without ever choosing that</p>
+    <h3 style="color:var(--g10)">What counts</h3>
+    <p>Algebra I shows on your transcript. Nothing else from this year does</p>
+    <h3 style="color:var(--g10)">Tests and deadlines</h3>
+    <p>None that matter</p>
+    <a class="more" href="/grades/8">How to: 8th grade →</a>
+  </div>
+  <div class="rail"><div class="dot" style="background:var(--g8);color:var(--g12)">8</div></div>
+  <div></div>
+</div>
+
+<div class="row">
+  <div></div>
+  <div class="rail"><div class="dot" style="background:var(--g7);color:var(--g12)">7</div></div>
+  <div class="block">
+    <h2>Find out what you like</h2>
+    <p class="say">The whole job is collecting evidence about yourself.</p>
+    <h3 style="color:var(--g10)">What to do now</h3>
+    <p>Join clubs you're curious about, quit the ones you don't like</p>
+    <p>Try one thing that seems slightly too hard</p>
+    <h3 style="color:var(--g10)">What most people get wrong</h3>
+    <p>Nothing here. Not thinking about college in 7th grade is the correct move</p>
+    <h3 style="color:var(--g10)">What counts</h3>
+    <p>Nothing. That's the point — this year is free to experiment</p>
+    <h3 style="color:var(--g10)">Tests and deadlines</h3>
+    <p>None</p>
+    <a class="more" href="/grades/7">How to: 7th grade →</a>
+  </div>
+</div>
+
+<div class="row" id="start">
+  <div class="block right">
+    <h2>One decision, quietly</h2>
+    <p class="say">Almost nothing here matters. One thing does.</p>
+    <h3 style="color:var(--g10)">What to do now</h3>
+    <p>If you like math, find out whether your school has an accelerated track and how you get on it</p>
+    <h3 style="color:var(--g10)">What most people get wrong</h3>
+    <p>Not realizing math placement is a decision at all. It's usually made on 5th and 6th grade scores, and it's what decides whether Algebra I in 8th grade is even available to you</p>
+    <h3 style="color:var(--g10)">What counts</h3>
+    <p>Nothing goes anywhere near an application. But this one placement shapes the next six years of math</p>
+    <h3 style="color:var(--g10)">Tests and deadlines</h3>
+    <p>Whatever placement test your district uses, if it uses one</p>
+    <a class="more" href="/grades/6">How to: 6th grade →</a>
+  </div>
+  <div class="rail"><div class="dot pale" id="bot-dot" style="background:var(--g6);color:var(--g12)">6</div></div>
+  <div></div>
+</div>
+
+<div class="key">
+  <div class="chip on">Grades 6, 7 and 8<b>explore</b></div>
+  <div class="chip">Grades 9 and 10<b>build</b></div>
+  <div class="chip">Grades 11 and 12<b>apply</b></div>
+</div>
+
+<div class="foot">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5"/><path d="m5 12 7-7 7 7"/>
+  </svg>
+  <p class="up">Start here and scroll up</p>
+  <p class="sub">You're already somewhere on this line.</p>
+</div>
+
+</div>
+</div>
+
+<script>
+(function(){
+  var line=document.querySelector('.line'),
+      spine=document.getElementById('spine'),
+      top=document.getElementById('top-dot'),
+      bot=document.getElementById('bot-dot');
+  function place(){
+    if(!line||!spine||!top||!bot)return;
+    var l=line.getBoundingClientRect(),t=top.getBoundingClientRect(),b=bot.getBoundingClientRect();
+    spine.style.top=Math.round(t.top-l.top+t.height/2)+'px';
+    spine.style.bottom=Math.round(l.bottom-b.bottom+b.height/2)+'px';
+  }
+  place();
+  window.addEventListener('resize',place);
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(place);}
+  setTimeout(place,400);
+})();
+</script>
+</body>
+</html>
