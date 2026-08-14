@@ -17,7 +17,15 @@
 
 <nav class="topnav">
   <div class="topnav-inner">
-    <span class="wordmark">Six Years Out</span>
+    <a class="brand" href="/">
+      <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M50,16.7 8.3,37.5 50,58.3 91.7,37.5Z" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+        <path d="M25,47.9V66.7c0,6.7 11.25,12.5 25,12.5s25,-5.8 25,-12.5V47.9" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M85.8,35V56.7" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+        <circle cx="85.8" cy="61.7" r="8" fill="currentColor"/>
+      </svg>
+      <span class="wordmark">Six Years Out</span>
+    </a>
     <a class="nav-link" href="/timeline">The Timeline</a>
   </div>
 </nav>
@@ -80,6 +88,10 @@ body{
   max-width:1040px;margin:0 auto;padding:20px 24px;
   display:flex;align-items:center;justify-content:space-between;
 }
+.brand{display:flex;align-items:center;gap:9px;color:var(--ink);text-decoration:none}
+.brand:hover{color:var(--g10)}
+.brand:focus-visible{outline:2px solid var(--g10);outline-offset:3px}
+.brand-mark{width:22px;height:22px;flex:none;color:inherit}
 .wordmark{font-family:Fraunces,serif;font-weight:600;font-size:18px}
 .nav-link{font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
 .nav-link:hover{text-decoration:underline}
