@@ -1,0 +1,112 @@
+---
+import TopNav from '../../components/TopNav.astro';
+---
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="generator" content={Astro.generator} />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<title>How to: 6th grade — Six Years Out</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500&display=swap">
+</head>
+<body>
+<TopNav current="grades" />
+
+<article class="grade-page">
+  <header class="grade-head">
+    <div class="grade-badge">6</div>
+    <span class="eyebrow">Grade 6</span>
+    <h1>Only one decision matters</h1>
+    <p class="lede">If math interests you, find out if your school has an accelerated math program.</p>
+  </header>
+
+  <section class="grade-section">
+    <h2>What to do now</h2>
+    <p>If you are even remotely interested in math, put some effort into finding out whether your school has an accelerated math program. If you can get in, this will open up so many doors later on in your education.</p>
+    <p>You may be wondering how to find out whether your school even has a GT or accelerated program for math. My recommendation would be to check your school's website, ask a teacher, or recruit a parent/guardian to figure it out for you.</p>
+    <p>If your school doesn't offer anything like this, don't panic — plenty of students still get on track in high school, through a summer course or by doubling up on math for a year. But if the option exists, it's worth chasing.</p>
+  </section>
+
+  <section class="grade-section">
+    <h2>What most people get wrong</h2>
+    <p>Not realizing math placement is even a decision at all, specifically a very important one that dictates whether Algebra 1 is even available to you in 8th grade. However, it is typically made based off of 5th and/or 6th grade test scores, so ensure you are prepared for those.</p>
+    <p>Here's the actual chain: getting into Algebra I in 8th grade is usually what makes Geometry in 9th, Algebra II in 10th, Precalculus in 11th, and Calculus in 12th possible — that's the track colleges notice. Every district runs placement differently, too. Some use a single test, others weigh grades and teacher recommendations, so it's worth asking exactly how yours decides.</p>
+  </section>
+
+  <section class="grade-section">
+    <h2>What counts</h2>
+    <p>Nothing from 6th grade makes it to your college application, but that one decision now has the potential to shape the next six years of math.</p>
+    <p>And if math isn't your thing, that's completely fine too — there's nothing to lose this year by skipping it.</p>
+  </section>
+
+  <section class="grade-section">
+    <h2>Tests and deadlines</h2>
+    <ul>
+      <li>State testing in some places</li>
+      <li>Whatever placement test your school uses, if there even is one</li>
+    </ul>
+  </section>
+
+  <a class="back" href="/timeline">← Back to the timeline</a>
+</article>
+
+<style>
+:root{
+  --paper:#FAF4EA;
+  --ink:#12283D;
+  --ink-soft:#4A5C70;
+  --ink-faint:#7A8899;
+  --rule:#E4D9C6;
+  --g6:#E6F1FB;
+  --g7:#B5D4F4;
+  --g8:#85B7EB;
+  --g9:#378ADD;
+  --g10:#185FA5;
+  --g11:#0C447C;
+  --g12:#042C53;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Inter,system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.grade-page{max-width:640px;margin:0 auto;padding:80px 24px 120px}
+.grade-head{text-align:center;margin-bottom:56px}
+.grade-badge{
+  width:48px;height:48px;margin:0 auto 20px;border-radius:50%;
+  background:var(--g6);border:1px solid var(--g7);color:var(--g12);
+  display:flex;align-items:center;justify-content:center;
+  font-family:Fraunces,serif;font-weight:600;font-size:20px;
+}
+.eyebrow{display:block;font-size:13px;font-weight:500;color:var(--g10);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:14px}
+.grade-head h1{font-family:Fraunces,serif;font-weight:700;font-size:34px;line-height:1.2;margin:0 0 14px;letter-spacing:-0.01em;text-wrap:balance}
+.lede{font-size:16px;line-height:1.6;color:var(--ink-soft);margin:0}
+
+.grade-section{margin-bottom:40px}
+.grade-section h2{font-family:Fraunces,serif;font-weight:600;font-size:19px;color:var(--g10);margin:0 0 12px}
+.grade-section p{font-size:15.5px;line-height:1.65;color:var(--ink);margin:0 0 12px}
+.grade-section p:last-child{margin-bottom:0}
+.grade-section ul{margin:0;padding-left:20px}
+.grade-section li{font-size:15.5px;line-height:1.65;color:var(--ink);margin-bottom:8px}
+.grade-section li:last-child{margin-bottom:0}
+
+.back{display:inline-block;margin-top:8px;font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
+.back:hover{text-decoration:underline}
+.back:focus-visible{outline:2px solid var(--g10);outline-offset:3px}
+
+@media (max-width:640px){
+  .grade-page{padding:56px 20px 96px}
+  .grade-head h1{font-size:28px}
+}
+</style>
+</body>
+</html>

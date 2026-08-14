@@ -1,5 +1,15 @@
 ---
 import TopNav from '../components/TopNav.astro';
+
+const grades = [
+  { n: 6, href: '/grades/6', color: '#E6F1FB', border: '#B5D4F4', text: '#042C53', ready: true },
+  { n: 7, href: '/grades/7', color: '#B5D4F4', border: '#B5D4F4', text: '#042C53', ready: false },
+  { n: 8, href: '/grades/8', color: '#85B7EB', border: '#85B7EB', text: '#042C53', ready: false },
+  { n: 9, href: '/grades/9', color: '#378ADD', border: '#378ADD', text: '#fff', ready: false },
+  { n: 10, href: '/grades/10', color: '#185FA5', border: '#185FA5', text: '#fff', ready: false },
+  { n: 11, href: '/grades/11', color: '#0C447C', border: '#0C447C', text: '#fff', ready: false },
+  { n: 12, href: '/grades/12', color: '#042C53', border: '#042C53', text: '#fff', ready: false },
+];
 ---
 
 <html lang="en">
@@ -16,12 +26,27 @@ import TopNav from '../components/TopNav.astro';
 <body>
 <TopNav current="grades" />
 
-<section class="placeholder">
-  <span class="eyebrow">Coming soon</span>
-  <h1>Grade pages</h1>
-  <p>One page per grade, 6th through 12th, going deeper on the same four sections you see on the timeline — what to do now, what most people get wrong, what counts, and tests and deadlines.</p>
-  <a class="back" href="/timeline">← Back to the timeline</a>
+<header class="page-head">
+  <span class="eyebrow">Grade pages</span>
+  <h1>One page per grade</h1>
+  <p>Going deeper on the same four sections you see on the timeline — what to do now, what most people get wrong, what counts, and tests and deadlines. 6th grade is up first; the rest are on the way.</p>
+</header>
+
+<section class="grades-row">
+  {grades.map((g) => (
+    g.ready ? (
+      <a class="grade-dot ready" href={g.href} style={`background:${g.color};border-color:${g.border};color:${g.text}`}>
+        {g.n}
+      </a>
+    ) : (
+      <span class="grade-dot" style={`background:${g.color};border-color:${g.border};color:${g.text}`}>
+        {g.n}
+      </span>
+    )
+  ))}
 </section>
+
+<a class="back" href="/timeline">← Back to the timeline</a>
 
 <style>
 :root{
@@ -48,17 +73,34 @@ body{
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
-.placeholder{max-width:560px;margin:0 auto;padding:120px 24px 140px;text-align:center}
+.page-head{max-width:560px;margin:0 auto;padding:96px 24px 8px;text-align:center}
 .eyebrow{display:block;font-size:13px;font-weight:500;color:var(--g10);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
-.placeholder h1{font-family:Fraunces,serif;font-weight:700;font-size:34px;line-height:1.2;margin:0 0 16px;letter-spacing:-0.01em;text-wrap:balance}
-.placeholder p{font-size:15.5px;line-height:1.6;color:var(--ink-soft);margin:0 0 32px}
-.back{font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
+.page-head h1{font-family:Fraunces,serif;font-weight:700;font-size:34px;line-height:1.2;margin:0 0 16px;letter-spacing:-0.01em;text-wrap:balance}
+.page-head p{font-size:15.5px;line-height:1.6;color:var(--ink-soft);margin:0 0 8px}
+
+.grades-row{
+  max-width:640px;margin:48px auto 0;padding:0 24px;
+  display:flex;justify-content:center;gap:14px;flex-wrap:wrap;
+}
+.grade-dot{
+  width:52px;height:52px;border-radius:50%;border:1px solid transparent;
+  display:flex;align-items:center;justify-content:center;
+  font-family:Fraunces,serif;font-weight:600;font-size:19px;
+  text-decoration:none;opacity:0.45;
+}
+.grade-dot.ready{opacity:1;box-shadow:0 1px 3px rgba(4,44,83,0.15)}
+.grade-dot.ready:hover{transform:translateY(-2px)}
+.grade-dot.ready:focus-visible{outline:2px solid var(--g10);outline-offset:3px}
+
+.back{display:block;text-align:center;margin:56px auto 0;font-size:14px;color:var(--g10);text-decoration:none;font-weight:500;padding-bottom:120px}
 .back:hover{text-decoration:underline}
 .back:focus-visible{outline:2px solid var(--g10);outline-offset:3px}
 
 @media (max-width:640px){
-  .placeholder{padding:80px 20px 96px}
-  .placeholder h1{font-size:28px}
+  .page-head{padding:64px 20px 8px}
+  .page-head h1{font-size:28px}
+  .grade-dot{width:44px;height:44px;font-size:16px}
+  .back{padding-bottom:80px}
 }
 </style>
 </body>
