@@ -1,0 +1,55 @@
+---
+interface Props {
+  current?: 'home' | 'timeline' | 'application' | 'resources';
+}
+const { current = 'home' } = Astro.props;
+
+const links = [
+  { key: 'timeline', href: '/timeline', label: 'The Timeline' },
+  { key: 'application', href: '/application', label: 'The Application' },
+  { key: 'resources', href: '/study-resources', label: 'Study Resources' },
+];
+---
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="brand" href="/">
+      <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M50,15 6,37.5 50,60 94,37.5Z" fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round" />
+        <path d="M23,48V68c0,7 12,13 27,13s27,-6 27,-13V48" fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round" stroke-linecap="round" />
+        <path d="M87,35V58" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" />
+        <circle cx="87" cy="64" r="8.5" fill="currentColor" />
+      </svg>
+      <span class="wordmark">Six Years Out</span>
+    </a>
+    <div class="nav-links">
+      {links.filter((l) => l.key !== current).map((l) => (
+        <a class="nav-link" href={l.href}>{l.label}</a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<style>
+  .topnav { border-bottom: 1px solid var(--rule); }
+  .topnav-inner {
+    max-width: 1180px; margin: 0 auto; padding: 22px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand { display: flex; align-items: center; gap: 11px; color: var(--ink); text-decoration: none; }
+  .brand:hover { color: var(--g10); }
+  .brand:focus-visible { outline: 2px solid var(--g10); outline-offset: 3px; }
+  .brand-mark { width: 32px; height: 32px; flex: none; color: inherit; }
+  .wordmark { font-family: Fraunces, serif; font-weight: 600; font-size: 20px; }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-link { font-size: 14px; color: var(--g10); text-decoration: none; font-weight: 500; }
+  .nav-link:hover { text-decoration: underline; }
+  .nav-link:focus-visible { outline: 2px solid var(--g10); outline-offset: 3px; }
+
+  @media (max-width: 640px) {
+    .topnav-inner { flex-wrap: wrap; row-gap: 14px; padding: 16px 20px; }
+    .nav-links { width: 100%; gap: 18px; }
+    .wordmark { font-size: 18px; }
+    .brand-mark { width: 28px; height: 28px; }
+  }
+</style>
