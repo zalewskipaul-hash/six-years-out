@@ -22,13 +22,13 @@ import TopNav from '../components/TopNav.astro';
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-inner">
     <h1>You're six years out.<br>Or seven. Or four.</h1>
-    <p class="hero-lede">But none of that changes the fact that college is looming closer. Everything schools tell you about college, they tell you too late. With tools from a laid-out timeline to SAT study resources, Six Years Out helps you feel prepared, so nothing catches you by surprise on the way.</p>
+    <p class="hero-lede">But none of that changes the fact that college is looming closer. Everything schools tell you about college, they tell you too late.</p>
   </div>
 </header>
 
 <section class="statement">
   <p>MOST COLLEGE ADVICE<br>IS WRITTEN FOR<br><span class="accent">PARENTS OF JUNIORS.</span></p>
-  <p class="statement-sub">This is written for the student, starting years before most even think about college, and while there's still time to do something with what you learn.</p>
+  <p class="statement-sub">This is written for the kid, starting years before most even think about college, and while there's still time to do something with what you learn. With tools from a laid-out timeline to SAT study resources, Six Years Out helps you feel prepared, so nothing catches you by surprise on the way.</p>
 </section>
 
 <section class="start">
@@ -37,6 +37,26 @@ import TopNav from '../components/TopNav.astro';
     <h2>Start on the timeline.</h2>
     <p>One page, seven grades, top to bottom. What to do now, what most people get wrong, what actually counts, and what tests and deadlines are coming — for wherever you are on the line.</p>
     <a class="cta" href="/timeline">See the timeline →</a>
+  </div>
+</section>
+
+<section class="articles">
+  <div class="articles-grid">
+    <a class="article-card" href="/study-resources">
+      <h3>Resources</h3>
+      <p>SAT and ACT prep resources, ranked with an actual opinion.</p>
+      <span class="read-more">Read more →</span>
+    </a>
+    <a class="article-card" href="/application">
+      <h3>What's actually on a college application?</h3>
+      <p>The artifact itself, demystified.</p>
+      <span class="read-more">Read more →</span>
+    </a>
+    <a class="article-card" href="/uniqueness">
+      <h3>Why you shouldn't do things just for your college application</h3>
+      <p>The trade-offs of resume-stuffing, and what to do instead.</p>
+      <span class="read-more">Read more →</span>
+    </a>
   </div>
 </section>
 
@@ -113,9 +133,25 @@ body{
 .start-card .cta{background:var(--g10);color:#fff}
 .start-card .cta:hover{background:var(--g11)}
 
+/* articles */
+.articles{padding:0 24px 100px}
+.articles-grid{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.article-card{
+  display:flex;flex-direction:column;padding:28px;border-radius:14px;
+  background:#fff;border:1px solid var(--rule);text-decoration:none;color:var(--ink);
+}
+.article-card:hover{border-color:var(--g10)}
+.article-card:focus-visible{outline:2px solid var(--g10);outline-offset:3px}
+.article-card h3{font-family:Fraunces,serif;font-weight:600;font-size:18px;line-height:1.35;margin:0 0 10px}
+.article-card p{font-size:14px;line-height:1.55;color:var(--ink-soft);margin:0 0 18px;flex:1}
+.article-card .read-more{font-size:13px;font-weight:500;color:var(--g10)}
+
 /* footer */
 .site-foot{text-align:center;padding:0 24px 56px;font-size:13px;color:var(--ink-faint)}
 
+@media (max-width:820px){
+  .articles-grid{grid-template-columns:1fr}
+}
 @media (max-width:640px){
   .hero-inner{padding:72px 20px 64px}
   .hero h1{font-size:38px}
