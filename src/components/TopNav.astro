@@ -1,13 +1,14 @@
 ---
 interface Props {
-  current?: 'home' | 'timeline' | 'application' | 'resources';
+  current?: 'home' | 'quizzes' | 'timeline' | 'articles' | 'grades';
 }
 const { current = 'home' } = Astro.props;
 
 const links = [
+  { key: 'quizzes', href: '/quizzes', label: 'Quizzes' },
   { key: 'timeline', href: '/timeline', label: 'The Timeline' },
-  { key: 'application', href: '/application', label: 'The Application' },
-  { key: 'resources', href: '/study-resources', label: 'Study Resources' },
+  { key: 'articles', href: '/articles', label: 'Articles' },
+  { key: 'grades', href: '/grades', label: 'Grade Pages' },
 ];
 ---
 
@@ -22,6 +23,13 @@ const links = [
       </svg>
       <span class="wordmark">Six Years Out</span>
     </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input" />
+    <label for="nav-toggle" class="nav-toggle-btn" aria-label="Toggle menu">
+      <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" /></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+    </label>
+
     <div class="nav-links">
       {links.filter((l) => l.key !== current).map((l) => (
         <a class="nav-link" href={l.href}>{l.label}</a>
@@ -33,6 +41,7 @@ const links = [
 <style>
   .topnav { border-bottom: 1px solid var(--rule); }
   .topnav-inner {
+    position: relative;
     max-width: 1180px; margin: 0 auto; padding: 22px 32px;
     display: flex; align-items: center; justify-content: space-between;
   }
@@ -46,10 +55,34 @@ const links = [
   .nav-link:hover { text-decoration: underline; }
   .nav-link:focus-visible { outline: 2px solid var(--g10); outline-offset: 3px; }
 
-  @media (max-width: 640px) {
-    .topnav-inner { flex-wrap: wrap; row-gap: 14px; padding: 16px 20px; }
-    .nav-links { width: 100%; gap: 18px; }
+  .nav-toggle-input { display: none; }
+  .nav-toggle-btn {
+    display: none;
+    align-items: center; justify-content: center;
+    width: 36px; height: 36px;
+    color: var(--ink); cursor: pointer;
+  }
+  .nav-toggle-btn svg { width: 22px; height: 22px; display: block; }
+  .nav-toggle-btn .icon-close { display: none; }
+  .nav-toggle-input:checked ~ .nav-toggle-btn .icon-menu { display: none; }
+  .nav-toggle-input:checked ~ .nav-toggle-btn .icon-close { display: block; }
+  .nav-toggle-btn:focus-visible { outline: 2px solid var(--g10); outline-offset: 2px; }
+
+  @media (max-width: 720px) {
+    .topnav-inner { padding: 16px 20px; }
     .wordmark { font-size: 18px; }
     .brand-mark { width: 28px; height: 28px; }
+
+    .nav-toggle-btn { display: flex; }
+
+    .nav-links {
+      display: none;
+      position: absolute; top: 100%; left: 0; right: 0; z-index: 30;
+      flex-direction: column; align-items: flex-start; gap: 2px;
+      background: var(--paper); border-bottom: 1px solid var(--rule);
+      padding: 8px 20px 20px;
+    }
+    .nav-toggle-input:checked ~ .nav-links { display: flex; }
+    .nav-link { width: 100%; padding: 10px 0; }
   }
 </style>
