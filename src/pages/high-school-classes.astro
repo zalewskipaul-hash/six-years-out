@@ -16,12 +16,49 @@ import TopNav from '../components/TopNav.astro';
 <body>
 <TopNav current="articles" />
 
-<section class="placeholder">
-  <span class="eyebrow">Coming soon</span>
-  <h1>How do I choose my high school classes?</h1>
-  <p>Picking a freshman-year schedule can feel like guessing — here's how to actually think about it, four years out.</p>
+<article class="post">
+  <header class="post-head">
+    <span class="eyebrow">Article</span>
+    <h1>How do I choose my high school classes?</h1>
+    <p class="dek">Picking a freshman-year schedule can feel like guessing — here's how to actually think about it, four years out.</p>
+  </header>
+
+  <div class="post-body">
+    <p>Typically, students are required to take four years of English, three years of science, three years of math, three years of social studies/history, and two to four years of a world language. However, this is just the minimum, and on average, selective colleges — especially highly selective ones — expect you to go above and beyond, taking four years of English, math, science, social studies, and world language. No, you don't <em>have</em> to do that, but taking four years of each subject is a very straightforward and surefire way for your college application to be seen by admissions committees all over, especially more selective ones.</p>
+
+    <p>At those highly selective colleges, around 75% of applicants are deemed "academically admissible," but those same colleges typically have an acceptance rate closer to 7.5%, not 75%. So if you're aiming for a highly selective school, it's essentially required to go further than the minimum graduating requirements.</p>
+
+    <h2>What selective colleges actually recommend</h2>
+
+    <p>Here are the recommended courses for 11 of the most selective colleges in the U.S.:</p>
+
+    <div class="table-todo">Table of recommended courses for the 11 most selective U.S. colleges — waiting on the data to fill this in.</div>
+
+    <div class="callout">
+      <strong>Super important side note:</strong> because of their extremely low acceptance rates, the table above may as well be read as a requirement — assuming you have those options at your high school.
+    </div>
+
+    <p>Even social studies and history, the most controversial recommendation, is a subject that's still strongly recommended for all four years, considering the list above was only a sample of the 2,500+ four-year colleges in the U.S.</p>
+
+    <p>At the same time, it's important to keep in mind that colleges only assess your courses and schedule based on what's offered at your school, so don't worry if your schedule looks slightly different than the one above.</p>
+
+    <h2>AP, Honors, and IB classes</h2>
+
+    <h3>Is it better to get an A in a regular class, or a B in an AP/Honors/IB class?</h3>
+
+    <p>Let's be real — neither an A nor a B is a terrible grade, and both tend to be signs of strong academic commitment, as well as strong retention of course material, at most colleges.</p>
+
+    <p>So because of that, our advice would be: if you think you can maintain a B in an Honors/AP/IB class, that's generally a good sign that you're capable of tackling the material and level of challenge. C's and below are typically when admissions committees begin to raise eyebrows. With that said, getting a B is fine, and can be an opportunity for growth if you improve it to an A, since most colleges are looking for commitment and academic growth, not perfect people.</p>
+
+    <p>In fact, multiple studies show that embracing more challenging courses can help students develop intellectual curiosity and certain important life skills. So not only are these courses appealing to colleges, but they can also help improve your quality of life long-term.</p>
+
+    <h2>In short</h2>
+
+    <p>Build your schedule around things that interest you, while doing your best to incorporate course rigor. Yes, colleges look for A's and 4.0 GPAs, but they also look for academic maturity, growth, and overall commitment — so throw a couple of challenging courses in there and see where they take you. Be courageous, embrace not knowing everything, and just remember: one B is not the end of your life, so don't stress about it.</p>
+  </div>
+
   <a class="back" href="/articles">← Back to articles</a>
-</section>
+</article>
 
 <style>
 :root{
@@ -48,17 +85,37 @@ body{
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
-.placeholder{max-width:560px;margin:0 auto;padding:120px 24px 140px;text-align:center}
-.eyebrow{display:block;font-size:13px;font-weight:500;color:var(--g10);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
-.placeholder h1{font-family:Fraunces,serif;font-weight:700;font-size:34px;line-height:1.2;margin:0 0 16px;letter-spacing:-0.01em;text-wrap:balance}
-.placeholder p{font-size:15.5px;line-height:1.6;color:var(--ink-soft);margin:0 0 32px}
-.back{font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
+.post{max-width:640px;margin:0 auto;padding:80px 24px 120px}
+.post-head{text-align:center;margin-bottom:48px}
+.eyebrow{display:block;font-size:13px;font-weight:500;color:var(--g10);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:14px}
+.post-head h1{font-family:Fraunces,serif;font-weight:700;font-size:34px;line-height:1.2;margin:0 0 14px;letter-spacing:-0.01em;text-wrap:balance}
+.dek{font-size:16px;line-height:1.6;color:var(--ink-soft);margin:0}
+
+.post-body p{font-size:15.5px;line-height:1.7;color:var(--ink);margin:0 0 20px}
+.post-body h2{font-family:Fraunces,serif;font-weight:600;font-size:22px;color:var(--g10);margin:40px 0 16px}
+.post-body h3{font-family:Fraunces,serif;font-weight:600;font-size:17px;color:var(--ink);margin:0 0 14px}
+.post-body em{font-style:normal;font-weight:600}
+
+.table-todo{
+  margin:0 0 20px;padding:20px;border-radius:10px;
+  border:1px dashed #C9B99E;color:var(--ink-faint);
+  font-size:14px;line-height:1.5;text-align:center;
+}
+.callout{
+  margin:0 0 20px;padding:18px 20px;border-radius:10px;
+  background:var(--g6);border:1px solid var(--g7);
+  font-size:14.5px;line-height:1.6;color:var(--g12);
+}
+.callout strong{font-weight:600}
+
+.back{display:inline-block;margin-top:8px;font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
 .back:hover{text-decoration:underline}
 .back:focus-visible{outline:2px solid var(--g10);outline-offset:3px}
 
 @media (max-width:640px){
-  .placeholder{padding:80px 20px 96px}
-  .placeholder h1{font-size:28px}
+  .post{padding:56px 20px 96px}
+  .post-head h1{font-size:28px}
+  .post-body h2{font-size:20px}
 }
 </style>
 </body>
