@@ -1,0 +1,110 @@
+---
+import TopNav from '../../components/TopNav.astro';
+---
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="generator" content={Astro.generator} />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<title>How to: 7th grade — Six Years Out</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500&display=swap">
+</head>
+<body>
+<TopNav current="grades" />
+
+<article class="grade-page">
+  <header class="grade-head">
+    <div class="grade-badge">7</div>
+    <span class="eyebrow">Grade 7</span>
+    <h1>Find out what you like</h1>
+    <p class="lede">Don't be afraid to explore both inside and outside of the classroom.</p>
+  </header>
+
+  <section class="grade-section">
+    <h2>What to do now</h2>
+    <p>Don't be afraid to explore! 7th grade is all about figuring out what you like — try new clubs, sports, and extracurriculars, going into each with an open perspective.</p>
+    <p>Give yourself a challenge. High school, and even 8th grade, can be challenging, so if you train your brain to overcome challenges and do hard things early, you're already a step ahead of everyone else. Whether that means doing a hard sport you aren't used to, or entering yourself in a challenging math program after school, you're rewiring your brain in a way that will be incredibly beneficial for you in the future.</p>
+    <p>Quitting counts too. It's just as useful to try something and realize it's not for you as it is to stick with something that is — trying five things and keeping two tells you almost as much about yourself as sticking with all five would.</p>
+  </section>
+
+  <section class="grade-section">
+    <h2>What most people get wrong</h2>
+    <p>Waiting until freshman year to start exploring extracurriculars, when 7th grade is actually a better time to start. This is because there is more time and less pressure in 7th grade versus in 9th grade — there is less time and more pressure to find the activity. If you start exploring early, by the time you get to high school your foundation will be established and you can build on from there.</p>
+  </section>
+
+  <section class="grade-section">
+    <h2>What counts</h2>
+    <p>Nothing. This year is free to experiment. Enjoy the low stakes of being a kid while it's possible.</p>
+    <p>That's worth taking seriously, not brushing off — nothing you do this year goes toward an application, which means it's one of the only times you get to try things purely because you're curious, not because they'll look good on paper later.</p>
+  </section>
+
+  <section class="grade-section">
+    <h2>Tests and deadlines</h2>
+    <ul>
+      <li>State testing in some districts, but none that will come anywhere near going on your college application</li>
+    </ul>
+  </section>
+
+  <a class="back" href="/timeline">← Back to the timeline</a>
+</article>
+
+<style>
+:root{
+  --paper:#FAF4EA;
+  --ink:#12283D;
+  --ink-soft:#4A5C70;
+  --ink-faint:#7A8899;
+  --rule:#E4D9C6;
+  --g6:#E6F1FB;
+  --g7:#B5D4F4;
+  --g8:#85B7EB;
+  --g9:#378ADD;
+  --g10:#185FA5;
+  --g11:#0C447C;
+  --g12:#042C53;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Inter,system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.grade-page{max-width:640px;margin:0 auto;padding:80px 24px 120px}
+.grade-head{text-align:center;margin-bottom:56px}
+.grade-badge{
+  width:48px;height:48px;margin:0 auto 20px;border-radius:50%;
+  background:var(--g7);border:1px solid var(--g8);color:var(--g12);
+  display:flex;align-items:center;justify-content:center;
+  font-family:Fraunces,serif;font-weight:600;font-size:20px;
+}
+.eyebrow{display:block;font-size:13px;font-weight:500;color:var(--g10);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:14px}
+.grade-head h1{font-family:Fraunces,serif;font-weight:700;font-size:34px;line-height:1.2;margin:0 0 14px;letter-spacing:-0.01em;text-wrap:balance}
+.lede{font-size:16px;line-height:1.6;color:var(--ink-soft);margin:0}
+
+.grade-section{margin-bottom:40px}
+.grade-section h2{font-family:Fraunces,serif;font-weight:600;font-size:19px;color:var(--g10);margin:0 0 12px}
+.grade-section p{font-size:15.5px;line-height:1.65;color:var(--ink);margin:0 0 12px}
+.grade-section p:last-child{margin-bottom:0}
+.grade-section ul{margin:0;padding-left:20px}
+.grade-section li{font-size:15.5px;line-height:1.65;color:var(--ink);margin-bottom:8px}
+.grade-section li:last-child{margin-bottom:0}
+
+.back{display:inline-block;margin-top:8px;font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
+.back:hover{text-decoration:underline}
+.back:focus-visible{outline:2px solid var(--g10);outline-offset:3px}
+
+@media (max-width:640px){
+  .grade-page{padding:56px 20px 96px}
+  .grade-head h1{font-size:28px}
+}
+</style>
+</body>
+</html>
