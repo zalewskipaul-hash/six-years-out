@@ -30,12 +30,75 @@ import TopNav from '../components/TopNav.astro';
 
     <h2>What selective colleges actually recommend</h2>
 
-    <p>Here are the recommended courses for 11 of the most selective colleges in the U.S.:</p>
+    <p>Here are the recommended courses for 11 of the most selective colleges in the U.S., pulled directly from each school's own admissions website:</p>
 
-    <div class="table-todo">Table of recommended courses for the 11 most selective U.S. colleges — waiting on the data to fill this in.</div>
+    <div class="table-wrap">
+      <table class="course-table">
+        <thead>
+          <tr>
+            <th scope="col">College</th>
+            <th scope="col">English</th>
+            <th scope="col">Math</th>
+            <th scope="col">Science</th>
+            <th scope="col">Social studies</th>
+            <th scope="col">World language</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Harvard</th>
+            <td>4 yrs</td><td>4 yrs</td><td>4 yrs</td><td>2–3 yrs</td><td>4 yrs</td>
+          </tr>
+          <tr>
+            <th scope="row">Yale</th>
+            <td colspan="5" class="no-target">No specific year targets. Yale's guidance is just to take a course "each year" in each core area.</td>
+          </tr>
+          <tr>
+            <th scope="row">Princeton</th>
+            <td>4 yrs</td><td>4 yrs</td><td>2+ yrs</td><td>2+ yrs</td><td>4 yrs</td>
+          </tr>
+          <tr>
+            <th scope="row">Brown</th>
+            <td>4 yrs</td><td>4 yrs</td><td>3–4 yrs</td><td>3–4 yrs</td><td>3–4 yrs</td>
+          </tr>
+          <tr>
+            <th scope="row">Dartmouth</th>
+            <td>4 yrs</td><td>4 yrs</td><td>3 yrs</td><td>3 yrs</td><td>3 yrs</td>
+          </tr>
+          <tr>
+            <th scope="row">Columbia</th>
+            <td>4 yrs</td><td>4 yrs</td><td>3–4 yrs</td><td>3–4 yrs</td><td>3–4 yrs</td>
+          </tr>
+          <tr>
+            <th scope="row">Penn</th>
+            <td colspan="5" class="no-target">No specific year targets. Penn just asks for consistent coursework in core areas across all four years.</td>
+          </tr>
+          <tr>
+            <th scope="row">Cornell</th>
+            <td>4 yrs</td><td>3 yrs</td><td>3 yrs</td><td class="no-target">Not specified</td><td>3 yrs</td>
+          </tr>
+          <tr>
+            <th scope="row">UChicago</th>
+            <td>4 yrs</td><td>3–4 yrs</td><td>3–4 yrs</td><td>3+ yrs</td><td>2–3 yrs</td>
+          </tr>
+          <tr>
+            <th scope="row">MIT</th>
+            <td colspan="5" class="no-target">No specific year targets. MIT organizes around math, science, and humanities/arts/social sciences broadly, and says outright: "There are no specific high school courses in these fields that we require."</td>
+          </tr>
+          <tr>
+            <th scope="row">Stanford</th>
+            <td>4 yrs</td><td>4 yrs</td><td>3+ yrs</td><td>3+ yrs</td><td>3+ yrs</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="table-note">A few things worth knowing about this table: Cornell's numbers are for the College of Arts &amp; Sciences specifically — other Cornell colleges (like Engineering) recommend more. Columbia's numbers are for Columbia College — Columbia Engineering wants a full 4 years of science instead. And Harvard's history range comes straight from their own wording: "at least two years, and preferably three."</p>
+
+    <p class="table-source">Table idea via <a href="https://www.collegeessayguy.com/blog/how-to-choose-high-school-courses" target="_blank" rel="noopener noreferrer">College Essay Guy's writeup on choosing high school courses</a> — worth a read. The numbers above were independently verified against each college's own admissions page as of August 2026.</p>
 
     <div class="callout">
-      <strong>Super important side note:</strong> because of their extremely low acceptance rates, the table above may as well be read as a requirement — assuming you have those options at your high school.
+      <strong>Super important side note:</strong> because of their extremely low acceptance rates, the table above may as well be read as a requirement for the schools that specify one — assuming you have those options at your high school.
     </div>
 
     <p>Even social studies and history, the most controversial recommendation, is a subject that's still strongly recommended for all four years, considering the list above was only a sample of the 2,500+ four-year colleges in the U.S.</p>
@@ -96,11 +159,20 @@ body{
 .post-body h3{font-family:Fraunces,serif;font-weight:600;font-size:17px;color:var(--ink);margin:0 0 14px}
 .post-body em{font-style:normal;font-weight:600}
 
-.table-todo{
-  margin:0 0 20px;padding:20px;border-radius:10px;
-  border:1px dashed #C9B99E;color:var(--ink-faint);
-  font-size:14px;line-height:1.5;text-align:center;
+.table-wrap{overflow-x:auto;margin:0 0 16px;border:1px solid var(--rule);border-radius:10px}
+.course-table{width:100%;border-collapse:collapse;background:#fff;font-size:13.5px}
+.course-table th,.course-table td{padding:10px 14px;text-align:left;white-space:nowrap;border-bottom:1px solid var(--rule)}
+.course-table thead th{
+  background:var(--g11);color:#fff;font-family:Inter,sans-serif;font-weight:500;
+  font-size:12.5px;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;
 }
+.course-table tbody th{font-family:Fraunces,serif;font-weight:600;font-size:14px;color:var(--ink);white-space:nowrap}
+.course-table tbody tr:last-child td,.course-table tbody tr:last-child th{border-bottom:none}
+.course-table td.no-target{
+  white-space:normal;color:var(--ink-soft);font-style:italic;font-size:13px;
+}
+.table-note,.table-source{font-size:13.5px;line-height:1.6;color:var(--ink-faint);margin:0 0 16px}
+.table-source a{color:var(--g10)}
 .callout{
   margin:0 0 20px;padding:18px 20px;border-radius:10px;
   background:var(--g6);border:1px solid var(--g7);
