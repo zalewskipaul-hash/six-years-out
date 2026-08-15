@@ -26,11 +26,12 @@ import TopNav from '../../components/TopNav.astro';
 
   <section class="grade-section">
     <h2>What to do now</h2>
-    <p>Take Algebra 1 if you can, since taking this course now is what makes calculus eventually reachable in high school. You should also make sure to test into the highest math class possible, as this will further accelerate your course rigor and prove that you can handle a challenge.</p>
+    <p>Take Algebra 1 if you can, since taking this course now is what makes calculus eventually reachable in high school. You should also make sure to test into the highest ninth-grade math class possible, as this will further accelerate your course rigor and prove that you can handle a challenge.</p>
     <p>Read for fun constantly, which is the best long-run test prep there is. Studies show that reading at least one book per month outside of school helps to keep the brain stimulated, reduce stress, and increase vocabulary.</p>
     <p>Creating good study habits is also very important, as it is something you will use throughout the rest of your academic journey. If you start now, you'll be one step closer to getting good grades in high school, which will then feed into your college application.</p>
     <p>Plan your first year of high school accordingly. Colleges look at all four years of courses and activities, and love to see commitment shown through your course rigor.</p>
     <p>Focus on building a solid academic foundation now. Colleges may not see your grades from middle school, but they will see the ones from high school. By maintaining good grades now, high school won't be as much of a leap.</p>
+    <a class="more" href="/good-study-habits">Good study habits →</a>
   </section>
 
   <section class="grade-section">
@@ -48,7 +49,7 @@ import TopNav from '../../components/TopNav.astro';
 
   <section class="grade-section">
     <h2>Tests and deadlines</h2>
-    <p>Aside from state testing in some districts, what you should focus on is testing into the highest math class possible for high school, if that even exists at your school. There are no tests or deadlines that go on your college application.</p>
+    <p>Aside from state testing in some districts, what you should focus on is testing into the highest math class possible for your freshman year, if that even exists at your school. There are no tests or deadlines that go on your college application.</p>
     <p>If your school does offer this kind of placement, your best bet is to ask your math teacher or school counselor directly what the process looks like and when decisions get made.</p>
   </section>
 
@@ -60,7 +61,9 @@ import TopNav from '../../components/TopNav.astro';
     </a>
   </section>
 
-  <a class="back" href="/timeline">← Back to the timeline</a>
+  <nav class="grade-nav">
+    <a class="back" href="/timeline">← Back to the timeline</a>
+  </nav>
 </article>
 
 <style>
@@ -125,9 +128,13 @@ body{
 .article-card p{font-size:14px;line-height:1.55;color:var(--ink-soft);margin:0 0 14px}
 .article-card .read-more{font-size:13px;font-weight:500;color:var(--g10)}
 
-.back{display:inline-block;margin-top:8px;font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
+.grade-nav{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.back{font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
 .back:hover{text-decoration:underline}
 .back:focus-visible{outline:2px solid var(--g10);outline-offset:3px}
+.next{font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
+.next:hover{text-decoration:underline}
+.next:focus-visible{outline:2px solid var(--g10);outline-offset:3px}
 
 @media (max-width:640px){
   .grade-page{padding:56px 20px 96px}

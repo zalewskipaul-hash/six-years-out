@@ -51,7 +51,10 @@ import TopNav from '../../components/TopNav.astro';
     </ul>
   </section>
 
-  <a class="back" href="/timeline">← Back to the timeline</a>
+  <nav class="grade-nav">
+    <a class="back" href="/timeline">← Back to the timeline</a>
+    <a class="next" href="/grades/7">Next grade →</a>
+  </nav>
 </article>
 
 <style>
@@ -99,9 +102,13 @@ body{
 .grade-section li{font-size:15.5px;line-height:1.65;color:var(--ink);margin-bottom:8px}
 .grade-section li:last-child{margin-bottom:0}
 
-.back{display:inline-block;margin-top:8px;font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
+.grade-nav{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.back{font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
 .back:hover{text-decoration:underline}
 .back:focus-visible{outline:2px solid var(--g10);outline-offset:3px}
+.next{font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
+.next:hover{text-decoration:underline}
+.next:focus-visible{outline:2px solid var(--g10);outline-offset:3px}
 
 @media (max-width:640px){
   .grade-page{padding:56px 20px 96px}
