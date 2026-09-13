@@ -1,0 +1,417 @@
+---
+import TopNav from '../../components/TopNav.astro';
+---
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="generator" content={Astro.generator} />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<title>SAT vs ACT Quiz — Six Years Out</title>
+	<meta name="description" content="8 questions, 5 minutes, and a little bit of brain power. Find out which test actually fits you." />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500&display=swap">
+</head>
+<body>
+<TopNav current="quizzes" />
+
+<main class="quiz-wrap">
+  <div id="quiz-root"></div>
+</main>
+
+<style is:global>
+:root{
+  --paper:#FAF4EA;
+  --ink:#12283D;
+  --ink-soft:#4A5C70;
+  --ink-faint:#7A8899;
+  --rule:#E4D9C6;
+  --g6:#E6F1FB;
+  --g7:#B5D4F4;
+  --g8:#85B7EB;
+  --g9:#378ADD;
+  --g10:#185FA5;
+  --g11:#0C447C;
+  --g12:#042C53;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Inter,system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.quiz-wrap{max-width:600px;margin:0 auto;padding:64px 24px 120px;min-height:60vh}
+
+/* intro */
+.intro{text-align:center;padding-top:32px}
+.intro .eyebrow{display:block;font-size:13px;font-weight:500;color:var(--g10);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+.intro h1{font-family:Fraunces,serif;font-weight:700;font-size:32px;line-height:1.2;margin:0 0 18px;letter-spacing:-0.01em;text-wrap:balance}
+.intro p{font-size:15.5px;line-height:1.6;color:var(--ink-soft);margin:0 0 36px;max-width:44ch;margin-left:auto;margin-right:auto}
+
+.btn{
+  display:inline-block;font-family:Inter,sans-serif;font-weight:500;font-size:15px;
+  padding:13px 28px;border-radius:9px;background:var(--g10);color:#fff;
+  text-decoration:none;border:none;cursor:pointer;
+}
+.btn:hover{background:var(--g11)}
+.btn:focus-visible{outline:2px solid var(--g11);outline-offset:3px}
+.btn:disabled{background:var(--rule);color:var(--ink-faint);cursor:not-allowed}
+.btn-ghost{
+  display:inline-block;font-family:Inter,sans-serif;font-weight:500;font-size:14px;
+  padding:11px 20px;border-radius:9px;background:transparent;color:var(--g10);
+  border:1px solid var(--g10);cursor:pointer;text-decoration:none;
+}
+.btn-ghost:hover{background:#fff}
+.btn-ghost:focus-visible{outline:2px solid var(--g10);outline-offset:3px}
+
+/* progress */
+.progress-label{font-size:13px;font-weight:500;color:var(--ink-faint);margin-bottom:10px;text-align:center}
+.progress-track{height:6px;border-radius:3px;background:var(--rule);overflow:hidden;margin-bottom:40px}
+.progress-fill{height:100%;background:var(--g10);border-radius:3px;transition:width 0.3s ease}
+
+/* question */
+.q h2{font-family:Fraunces,serif;font-weight:600;font-size:24px;line-height:1.3;margin:0 0 28px;text-wrap:balance;text-align:center}
+.options{display:flex;flex-direction:column;gap:10px;margin-bottom:36px}
+.option{
+  display:block;position:relative;padding:15px 20px;border-radius:11px;
+  border:1.5px solid var(--rule);background:#fff;cursor:pointer;
+  font-size:15px;color:var(--ink);
+}
+.option:hover{border-color:var(--g8)}
+.option input{position:absolute;opacity:0;pointer-events:none}
+.option input:checked ~ .option-text{color:var(--g11);font-weight:500}
+.option:has(input:checked){border-color:var(--g10);background:var(--g6)}
+.option:has(input:focus-visible){outline:2px solid var(--g10);outline-offset:2px}
+
+.q-nav{display:flex;align-items:center;justify-content:space-between}
+.q-nav .spacer{flex:1}
+
+/* review */
+.review{text-align:center;padding-top:40px}
+.review h2{font-family:Fraunces,serif;font-weight:700;font-size:28px;margin:0 0 14px}
+.review p{font-size:15px;color:var(--ink-soft);margin:0 0 32px}
+.review .actions{display:flex;flex-direction:column;gap:12px;align-items:center}
+
+/* results */
+.results-top{text-align:center;padding-top:24px;margin-bottom:56px}
+.results-top .eyebrow{display:block;font-size:13px;font-weight:500;color:var(--g10);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:20px}
+.bars{max-width:420px;margin:0 auto 8px}
+.bar-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.bar-row .bar-label{width:42px;flex:none;font-family:Fraunces,serif;font-weight:600;font-size:15px;text-align:right}
+.bar-track{flex:1;height:22px;border-radius:6px;background:var(--rule-soft,#EEE6D6);overflow:hidden}
+.bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;transition:width 0.6s ease}
+.bar-fill.sat{background:var(--g11)}
+.bar-fill.act{background:var(--g9)}
+.bar-fill span{font-size:12px;font-weight:600;color:#fff;font-variant-numeric:tabular-nums}
+
+.results-detail{border-top:1px solid var(--rule);padding-top:40px}
+.results-detail h3{display:block;font-size:13px;font-weight:500;color:var(--g10);text-transform:uppercase;letter-spacing:0.06em;margin:0 0 16px;text-align:center}
+.results-detail h4{font-family:Fraunces,serif;font-weight:700;font-size:26px;margin:0 0 14px;text-align:center;text-wrap:balance}
+.results-detail p{font-size:15.5px;line-height:1.65;color:var(--ink-soft);margin:0 0 32px;text-align:center;max-width:48ch;margin-left:auto;margin-right:auto}
+.results-actions{display:flex;flex-direction:column;gap:14px;align-items:center}
+.results-actions a{font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
+.results-actions a:hover{text-decoration:underline}
+
+@media (max-width:560px){
+  .quiz-wrap{padding:44px 20px 96px}
+  .intro h1{font-size:26px}
+  .q h2{font-size:21px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
+}
+</style>
+
+<script>
+type Option = { label: string; score: number };
+type Question = { text: string; options: Option[] };
+
+const QUESTIONS: Question[] = [
+  {
+    text: 'Do you panic under time restrictions?',
+    options: [
+      { label: 'All of the time', score: -2 },
+      { label: 'Most of the time', score: -1 },
+      { label: 'Some of the time', score: 1 },
+      { label: 'Almost never', score: 2 },
+    ],
+  },
+  {
+    text: 'Are you good at memorizing formulas?',
+    options: [
+      { label: 'Almost always', score: 2 },
+      { label: 'Somewhat', score: 1 },
+      { label: 'Not really', score: -1 },
+      { label: 'Almost never', score: -2 },
+    ],
+  },
+  {
+    text: 'Are you good at logic puzzles?',
+    options: [
+      { label: 'Almost always', score: -2 },
+      { label: 'Somewhat', score: -1 },
+      { label: 'Not really', score: 1 },
+      { label: 'Almost never', score: 2 },
+    ],
+  },
+  {
+    text: 'Are you a slow or fast reader?',
+    options: [
+      { label: 'Super fast', score: 2 },
+      { label: 'Kinda fast', score: 1 },
+      { label: 'Kinda slow', score: -1 },
+      { label: 'Super slow', score: -2 },
+    ],
+  },
+  {
+    text: 'Are you good at interpreting data and charts?',
+    options: [
+      { label: 'Almost always', score: 2 },
+      { label: 'Somewhat', score: 1 },
+      { label: 'Not really', score: -1 },
+      { label: 'Almost never', score: -2 },
+    ],
+  },
+  {
+    text: 'Do you get less focused as time goes on?',
+    options: [
+      { label: 'Almost always', score: -2 },
+      { label: 'Somewhat', score: -1 },
+      { label: 'Not really', score: 1 },
+      { label: 'Almost none of the time', score: 2 },
+    ],
+  },
+  {
+    text: 'Are you good at answering questions with tricky wording?',
+    options: [
+      { label: 'Almost always', score: -2 },
+      { label: 'Somewhat', score: -1 },
+      { label: 'Not really', score: 1 },
+      { label: 'Almost none of the time', score: 2 },
+    ],
+  },
+  {
+    text: 'Are you good at interpreting or picking apart passages?',
+    options: [
+      { label: 'Almost always', score: 2 },
+      { label: 'Somewhat', score: 1 },
+      { label: 'Not really', score: -1 },
+      { label: 'Almost never', score: -2 },
+    ],
+  },
+];
+
+const root = document.getElementById('quiz-root')!;
+
+type State =
+  | { view: 'intro' }
+  | { view: 'question'; index: number; answers: (number | null)[] }
+  | { view: 'review'; answers: number[] }
+  | { view: 'results'; answers: number[] };
+
+function parseAnswersFromUrl(): number[] | null {
+  const params = new URLSearchParams(window.location.search);
+  const raw = params.get('a');
+  if (!raw || raw.length !== QUESTIONS.length) return null;
+  const answers: number[] = [];
+  for (const ch of raw) {
+    const n = Number(ch);
+    if (!Number.isInteger(n) || n < 0 || n > 3) return null;
+    answers.push(n);
+  }
+  return answers;
+}
+
+function encodeAnswers(answers: number[]): string {
+  return answers.join('');
+}
+
+function computeResult(answers: number[]) {
+  let sum = 0;
+  answers.forEach((idx, qi) => { sum += QUESTIONS[qi].options[idx].score; });
+  const pctACT = Math.round(((sum + 16) / 32) * 100);
+  const pctSAT = 100 - pctACT;
+  const lean: 'SAT' | 'ACT' = pctACT >= pctSAT ? 'ACT' : 'SAT';
+  const leanPct = Math.max(pctACT, pctSAT);
+  let tier: 'close' | 'soft' | 'confident';
+  if (leanPct <= 55) tier = 'close';
+  else if (leanPct <= 65) tier = 'soft';
+  else tier = 'confident';
+  return { pctACT, pctSAT, lean, tier };
+}
+
+const MESSAGES = {
+  close: {
+    headline: "It's genuinely close",
+    body: "Your answers landed almost evenly between the two — and that's useful information on its own. Take a full practice test for each before you decide. The real difference will probably come down to how each one actually felt, not the numbers.",
+  },
+  soft: {
+    SAT: {
+      headline: 'You lean SAT — but not by a landslide',
+      body: "Your answers point toward the SAT, though it's not an overwhelming pull. Worth taking a full practice test for both before you commit to one.",
+    },
+    ACT: {
+      headline: 'You lean ACT — but not by a landslide',
+      body: "Your answers point toward the ACT, though it's not an overwhelming pull. Worth taking a full practice test for both before you commit to one.",
+    },
+  },
+  confident: {
+    SAT: {
+      headline: 'You lean SAT',
+      body: 'Your answers point pretty clearly toward the SAT — probably because more time per question actually helps you, and a test that leans on careful reading and problem-solving over memorized formulas fits how you think. A full practice test is still the best way to confirm it.',
+    },
+    ACT: {
+      headline: 'You lean ACT',
+      body: "Your answers point pretty clearly toward the ACT — probably because you read fast, don't mind a quicker pace per question, and would rather have a formula memorized than puzzle one out. A full practice test is still the best way to confirm it.",
+    },
+  },
+};
+
+function render(state: State) {
+  if (state.view === 'intro') renderIntro();
+  else if (state.view === 'question') renderQuestion(state.index, state.answers);
+  else if (state.view === 'review') renderReview(state.answers);
+  else renderResults(state.answers);
+}
+
+function renderIntro() {
+  root.innerHTML = `
+    <div class="intro">
+      <span class="eyebrow">Quiz</span>
+      <h1>SAT vs ACT. Which one is right for you?</h1>
+      <p>8 questions, 5 minutes, and a little bit of brain power. Personalized results designed to tell you exactly where to go next.</p>
+      <button class="btn" id="start-btn">Start the quiz</button>
+    </div>
+  `;
+  document.getElementById('start-btn')!.addEventListener('click', () => {
+    goTo({ view: 'question', index: 0, answers: new Array(QUESTIONS.length).fill(null) });
+  });
+}
+
+function renderQuestion(index: number, answers: (number | null)[]) {
+  const q = QUESTIONS[index];
+  const pct = Math.round(((index + 1) / QUESTIONS.length) * 100);
+  root.innerHTML = `
+    <div class="q">
+      <p class="progress-label">Question ${index + 1} of ${QUESTIONS.length}</p>
+      <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+      <h2>${q.text}</h2>
+      <div class="options" role="radiogroup">
+        ${q.options.map((opt, i) => `
+          <label class="option">
+            <input type="radio" name="opt" value="${i}" ${answers[index] === i ? 'checked' : ''} />
+            <span class="option-text">${opt.label}</span>
+          </label>
+        `).join('')}
+      </div>
+      <div class="q-nav">
+        ${index > 0 ? `<button class="btn-ghost" id="back-btn">← Back</button>` : `<span></span>`}
+        <span class="spacer"></span>
+        <button class="btn" id="next-btn" ${answers[index] === null ? 'disabled' : ''}>${index === QUESTIONS.length - 1 ? 'Finish' : 'Next →'}</button>
+      </div>
+    </div>
+  `;
+
+  const nextBtn = document.getElementById('next-btn') as HTMLButtonElement;
+  root.querySelectorAll('input[name="opt"]').forEach((input) => {
+    input.addEventListener('change', (e) => {
+      const val = Number((e.target as HTMLInputElement).value);
+      answers[index] = val;
+      nextBtn.disabled = false;
+    });
+  });
+
+  const backBtn = document.getElementById('back-btn');
+  if (backBtn) {
+    backBtn.addEventListener('click', () => {
+      goTo({ view: 'question', index: index - 1, answers });
+    });
+  }
+
+  nextBtn.addEventListener('click', () => {
+    if (answers[index] === null) return;
+    if (index === QUESTIONS.length - 1) {
+      goTo({ view: 'review', answers: answers as number[] });
+    } else {
+      goTo({ view: 'question', index: index + 1, answers });
+    }
+  });
+}
+
+function renderReview(answers: number[]) {
+  root.innerHTML = `
+    <div class="review">
+      <h2>Finished?</h2>
+      <p>You can still go back and change an answer before you see your results.</p>
+      <div class="actions">
+        <button class="btn" id="see-results-btn">See your results</button>
+        <button class="btn-ghost" id="edit-btn">← Go back &amp; edit</button>
+      </div>
+    </div>
+  `;
+  document.getElementById('see-results-btn')!.addEventListener('click', () => {
+    goTo({ view: 'results', answers });
+  });
+  document.getElementById('edit-btn')!.addEventListener('click', () => {
+    goTo({ view: 'question', index: QUESTIONS.length - 1, answers });
+  });
+}
+
+function renderResults(answers: number[]) {
+  const { pctSAT, pctACT, lean, tier } = computeResult(answers);
+  const msg = tier === 'close' ? MESSAGES.close : MESSAGES[tier][lean];
+
+  history.replaceState(null, '', '?a=' + encodeAnswers(answers));
+
+  root.innerHTML = `
+    <div class="results-top">
+      <span class="eyebrow">Your result</span>
+      <div class="bars">
+        <div class="bar-row">
+          <span class="bar-label">SAT</span>
+          <div class="bar-track"><div class="bar-fill sat" style="width:${pctSAT}%"><span>${pctSAT}%</span></div></div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">ACT</span>
+          <div class="bar-track"><div class="bar-fill act" style="width:${pctACT}%"><span>${pctACT}%</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="results-detail">
+      <span class="eyebrow" style="display:block;text-align:center">Your results</span>
+      <h4>${msg.headline}</h4>
+      <p>${msg.body}</p>
+      <div class="results-actions">
+        <a href="/study-resources">Compare SAT and ACT prep resources →</a>
+        <a href="#" id="retake-link">Retake the quiz</a>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('retake-link')!.addEventListener('click', (e) => {
+    e.preventDefault();
+    history.replaceState(null, '', window.location.pathname);
+    goTo({ view: 'intro' });
+  });
+}
+
+function goTo(state: State) {
+  render(state);
+  window.scrollTo({ top: 0, behavior: 'auto' });
+}
+
+const urlAnswers = parseAnswersFromUrl();
+if (urlAnswers) {
+  render({ view: 'results', answers: urlAnswers });
+} else {
+  render({ view: 'intro' });
+}
+</script>
+</body>
+</html>

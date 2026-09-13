@@ -16,12 +16,26 @@ import TopNav from '../components/TopNav.astro';
 <body>
 <TopNav current="quizzes" />
 
-<section class="placeholder">
-  <span class="eyebrow">Coming soon</span>
-  <h1>Quizzes</h1>
-  <p>SAT or ACT — figure out which one suits you before you start studying for the wrong test. Plus a quiz on what kind of school fits you, no school names required.</p>
-  <a class="back" href="/timeline">← Back to the timeline</a>
+<header class="page-head">
+  <span class="eyebrow">Quizzes</span>
+  <h1>Figure out where you stand</h1>
+  <p>Short, no-accounts-needed quizzes. Your result encodes right into the URL, so it's yours to bookmark or share — nothing saved, nothing tracked.</p>
+</header>
+
+<section class="quiz-list">
+  <a class="quiz-card" href="/quizzes/sat-act">
+    <h2>SAT vs ACT</h2>
+    <p>8 questions, 5 minutes, and a little bit of brain power. Find out which test actually fits you.</p>
+    <span class="read-more">Take the quiz →</span>
+  </a>
+  <div class="quiz-card soon">
+    <span class="eyebrow">Coming soon</span>
+    <h2>What kind of school fits you?</h2>
+    <p>No school names required — just a shape: size, cost, selectivity, setting, and how central your thing is on campus.</p>
+  </div>
 </section>
+
+<a class="back" href="/timeline">← Back to the timeline</a>
 
 <style>
 :root{
@@ -48,17 +62,33 @@ body{
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
-.placeholder{max-width:560px;margin:0 auto;padding:120px 24px 140px;text-align:center}
+.page-head{max-width:560px;margin:0 auto;padding:96px 24px 8px;text-align:center}
 .eyebrow{display:block;font-size:13px;font-weight:500;color:var(--g10);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
-.placeholder h1{font-family:Fraunces,serif;font-weight:700;font-size:34px;line-height:1.2;margin:0 0 16px;letter-spacing:-0.01em;text-wrap:balance}
-.placeholder p{font-size:15.5px;line-height:1.6;color:var(--ink-soft);margin:0 0 32px}
-.back{font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
+.page-head h1{font-family:Fraunces,serif;font-weight:700;font-size:34px;line-height:1.2;margin:0 0 16px;letter-spacing:-0.01em;text-wrap:balance}
+.page-head p{font-size:15.5px;line-height:1.6;color:var(--ink-soft);margin:0 0 8px}
+
+.quiz-list{max-width:640px;margin:48px auto 0;padding:0 24px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.quiz-card{
+  display:block;padding:28px;border-radius:14px;
+  background:#fff;border:1px solid var(--rule);text-decoration:none;color:var(--ink);
+}
+.quiz-card:not(.soon):hover{border-color:var(--g10)}
+.quiz-card:not(.soon):focus-visible{outline:2px solid var(--g10);outline-offset:3px}
+.quiz-card.soon{opacity:0.6}
+.quiz-card .eyebrow{margin-bottom:10px}
+.quiz-card h2{font-family:Fraunces,serif;font-weight:600;font-size:19px;margin:0 0 10px;line-height:1.3}
+.quiz-card p{font-size:14px;line-height:1.55;color:var(--ink-soft);margin:0 0 16px}
+.quiz-card .read-more{font-size:13px;font-weight:500;color:var(--g10)}
+
+.back{display:block;text-align:center;margin:56px auto 0;font-size:14px;color:var(--g10);text-decoration:none;font-weight:500;padding-bottom:120px}
 .back:hover{text-decoration:underline}
 .back:focus-visible{outline:2px solid var(--g10);outline-offset:3px}
 
 @media (max-width:640px){
-  .placeholder{padding:80px 20px 96px}
-  .placeholder h1{font-size:28px}
+  .page-head{padding:64px 20px 8px}
+  .page-head h1{font-size:28px}
+  .quiz-list{grid-template-columns:1fr}
+  .back{padding-bottom:80px}
 }
 </style>
 </body>
