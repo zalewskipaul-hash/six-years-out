@@ -100,15 +100,29 @@ body{
 
 /* results */
 .results-top{text-align:center;padding-top:24px;margin-bottom:56px}
-.results-top .eyebrow{display:block;font-size:13px;font-weight:500;color:var(--g10);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:20px}
-.bars{max-width:420px;margin:0 auto 8px}
-.bar-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.bar-row .bar-label{width:42px;flex:none;font-family:Fraunces,serif;font-weight:600;font-size:15px;text-align:right}
-.bar-track{flex:1;height:22px;border-radius:6px;background:var(--rule-soft,#EEE6D6);overflow:hidden}
-.bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;transition:width 0.6s ease}
+.results-top .eyebrow{display:block;font-size:13px;font-weight:500;color:var(--g10);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:28px}
+
+/* vertical bar chart */
+.chart{max-width:280px;margin:0 auto}
+.chart-inner{display:flex;gap:16px;height:220px}
+.axis{
+  display:flex;flex-direction:column;justify-content:space-between;
+  font-size:11px;color:var(--ink-faint);text-align:right;padding-bottom:0;
+  font-variant-numeric:tabular-nums;
+}
+.bars-col{
+  flex:1;display:flex;align-items:flex-end;justify-content:center;gap:28px;
+  position:relative;border-left:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  background-image:repeating-linear-gradient(to bottom, var(--rule-soft,#EEE6D6) 0, var(--rule-soft,#EEE6D6) 1px, transparent 1px, transparent 25%);
+  background-position:top;
+}
+.bar-col{width:56px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.bar-value{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:6px;font-variant-numeric:tabular-nums}
+.bar-fill{width:100%;border-radius:6px 6px 0 0;transition:height 0.6s ease}
 .bar-fill.sat{background:var(--g11)}
 .bar-fill.act{background:var(--g9)}
-.bar-fill span{font-size:12px;font-weight:600;color:#fff;font-variant-numeric:tabular-nums}
+.bar-labels{display:flex;justify-content:center;gap:28px;margin-top:10px;padding-left:36px}
+.bar-labels span{width:56px;text-align:center;font-family:Fraunces,serif;font-weight:600;font-size:15px}
 
 .results-detail{border-top:1px solid var(--rule);padding-top:40px}
 .results-detail h3{display:block;font-size:13px;font-weight:500;color:var(--g10);text-transform:uppercase;letter-spacing:0.06em;margin:0 0 16px;text-align:center}
@@ -117,6 +131,23 @@ body{
 .results-actions{display:flex;flex-direction:column;gap:14px;align-items:center}
 .results-actions a{font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
 .results-actions a:hover{text-decoration:underline}
+
+/* per-question review */
+.review-list{border-top:1px solid var(--rule);padding-top:40px;margin-top:56px}
+.review-card{
+  background:#fff;border:1px solid var(--rule);border-radius:14px;
+  padding:24px 26px;margin-bottom:16px;
+}
+.review-num{font-family:Fraunces,serif;font-weight:600;font-size:12.5px;color:var(--g9);margin:0 0 6px}
+.review-card h5{font-family:Fraunces,serif;font-weight:600;font-size:18px;color:var(--ink);margin:0 0 10px;line-height:1.3}
+.review-fact{font-size:13.5px;line-height:1.55;color:var(--ink-soft);margin:0 0 18px}
+.review-options{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.review-opt{padding:10px 14px;border-radius:9px;border:1px solid var(--rule);font-size:14px;color:var(--ink-soft)}
+.review-opt.picked{border-color:var(--g10);background:var(--g6);color:var(--g11);font-weight:500}
+.lean-line{display:flex;align-items:center;gap:10px}
+.lean-line span{font-family:Fraunces,serif;font-weight:600;font-size:12px;color:var(--ink-faint)}
+.lean-track{flex:1;height:4px;border-radius:2px;background:var(--rule);position:relative}
+.lean-dot{position:absolute;top:50%;width:12px;height:12px;border-radius:50%;background:var(--g10);border:2px solid #fff;box-shadow:0 0 0 1px var(--g10);transform:translate(-50%,-50%)}
 
 @media (max-width:560px){
   .quiz-wrap{padding:44px 20px 96px}
@@ -130,11 +161,12 @@ body{
 
 <script>
 type Option = { label: string; score: number };
-type Question = { text: string; options: Option[] };
+type Question = { text: string; fact: string; options: Option[] };
 
 const QUESTIONS: Question[] = [
   {
     text: 'Do you panic under time restrictions?',
+    fact: 'The SAT gives you about 1 minute 11 seconds per question. The ACT gives you about 50 seconds.',
     options: [
       { label: 'All of the time', score: -2 },
       { label: 'Most of the time', score: -1 },
@@ -144,6 +176,7 @@ const QUESTIONS: Question[] = [
   },
   {
     text: 'Are you good at memorizing formulas?',
+    fact: "The ACT doesn't give you a formula sheet, so you need to know them cold. The SAT gives you one.",
     options: [
       { label: 'Almost always', score: 2 },
       { label: 'Somewhat', score: 1 },
@@ -153,6 +186,7 @@ const QUESTIONS: Question[] = [
   },
   {
     text: 'Are you good at logic puzzles?',
+    fact: 'SAT math leans on problem-solving with trickier wording. ACT math covers more topics, like trig and geometry, but the questions are more straightforward.',
     options: [
       { label: 'Almost always', score: -2 },
       { label: 'Somewhat', score: -1 },
@@ -162,6 +196,7 @@ const QUESTIONS: Question[] = [
   },
   {
     text: 'Are you a slow or fast reader?',
+    fact: 'SAT reading passages are short, with one question each. ACT reading passages are long, with about 10 questions each.',
     options: [
       { label: 'Super fast', score: 2 },
       { label: 'Kinda fast', score: 1 },
@@ -171,6 +206,7 @@ const QUESTIONS: Question[] = [
   },
   {
     text: 'Are you good at interpreting data and charts?',
+    fact: "The ACT has a science section built almost entirely around reading data and charts, not memorized science facts.",
     options: [
       { label: 'Almost always', score: 2 },
       { label: 'Somewhat', score: 1 },
@@ -180,6 +216,7 @@ const QUESTIONS: Question[] = [
   },
   {
     text: 'Do you get less focused as time goes on?',
+    fact: 'The full ACT runs about 2 hours 55 minutes. The full SAT runs about 2 hours 14 minutes.',
     options: [
       { label: 'Almost always', score: -2 },
       { label: 'Somewhat', score: -1 },
@@ -189,6 +226,7 @@ const QUESTIONS: Question[] = [
   },
   {
     text: 'Are you good at answering questions with tricky wording?',
+    fact: 'The SAT is known for wording its questions in trickier, more roundabout ways.',
     options: [
       { label: 'Almost always', score: -2 },
       { label: 'Somewhat', score: -1 },
@@ -198,6 +236,7 @@ const QUESTIONS: Question[] = [
   },
   {
     text: 'Are you good at interpreting or picking apart passages?',
+    fact: 'ACT passages are longer and get asked about more, so you have to dig into them further. SAT passages are shorter, with just one question each.',
     options: [
       { label: 'Almost always', score: 2 },
       { label: 'Somewhat', score: 1 },
@@ -372,15 +411,23 @@ function renderResults(answers: number[]) {
   root.innerHTML = `
     <div class="results-top">
       <span class="eyebrow">Your result</span>
-      <div class="bars">
-        <div class="bar-row">
-          <span class="bar-label">SAT</span>
-          <div class="bar-track"><div class="bar-fill sat" style="width:${pctSAT}%"><span>${pctSAT}%</span></div></div>
+      <div class="chart">
+        <div class="chart-inner">
+          <div class="axis">
+            <span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span>
+          </div>
+          <div class="bars-col">
+            <div class="bar-col">
+              <span class="bar-value">${pctSAT}%</span>
+              <div class="bar-fill sat" style="height:${pctSAT}%"></div>
+            </div>
+            <div class="bar-col">
+              <span class="bar-value">${pctACT}%</span>
+              <div class="bar-fill act" style="height:${pctACT}%"></div>
+            </div>
+          </div>
         </div>
-        <div class="bar-row">
-          <span class="bar-label">ACT</span>
-          <div class="bar-track"><div class="bar-fill act" style="width:${pctACT}%"><span>${pctACT}%</span></div></div>
-        </div>
+        <div class="bar-labels"><span>SAT</span><span>ACT</span></div>
       </div>
     </div>
     <div class="results-detail">
@@ -391,6 +438,28 @@ function renderResults(answers: number[]) {
         <a href="/study-resources">Compare SAT and ACT prep resources →</a>
         <a href="#" id="retake-link">Retake the quiz</a>
       </div>
+    </div>
+    <div class="review-list">
+      <span class="eyebrow" style="display:block;text-align:center">Your answers</span>
+      ${QUESTIONS.map((q, qi) => {
+        const picked = answers[qi];
+        const pos = Math.round(((q.options[picked].score + 2) / 4) * 100);
+        return `
+        <div class="review-card">
+          <p class="review-num">Question ${qi + 1}</p>
+          <h5>${q.text}</h5>
+          <p class="review-fact">${q.fact}</p>
+          <div class="review-options">
+            ${q.options.map((opt, i) => `<div class="review-opt${i === picked ? ' picked' : ''}">${opt.label}</div>`).join('')}
+          </div>
+          <div class="lean-line">
+            <span>SAT</span>
+            <div class="lean-track"><div class="lean-dot" style="left:${pos}%"></div></div>
+            <span>ACT</span>
+          </div>
+        </div>
+      `;
+      }).join('')}
     </div>
   `;
 
