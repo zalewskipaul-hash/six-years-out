@@ -1,0 +1,118 @@
+---
+import TopNav from '../../components/TopNav.astro';
+---
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="generator" content={Astro.generator} />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<title>How to: 12th grade — Six Years Out</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500&display=swap">
+</head>
+<body>
+<TopNav current="grades" />
+
+<article class="grade-page">
+  <header class="grade-head">
+    <div class="grade-badge">12</div>
+    <span class="eyebrow">Grade 12</span>
+    <h1>You submit your applications</h1>
+    <p class="lede">Senior year still counts.</p>
+  </header>
+
+  <section class="grade-section">
+    <h2>What to do now</h2>
+    <p>Write your essays over the summer — don't procrastinate. Writing them early gives you time to draft, edit, and finalize your essays in order to submit your best work.</p>
+    <p>Other than that, senior year is about finalizing. Finalize your essays. Finalize your recommendation letters. Finalize your college list. Finalize your application. Keep track of deadlines, and make sure you retake or take any tests (ACT or SAT) early in the year if the schools you're applying to require the scores.</p>
+    <p>If you're applying early decision or early action anywhere, those deadlines usually land in November — much earlier than regular decision deadlines in January. Know which type you're doing for each school before the summer ends.</p>
+  </section>
+
+  <section class="grade-section">
+    <h2>What most people get wrong</h2>
+    <p>Students will procrastinate and write the essays in October instead of during the summer. Don't be that kid. Essays are the only part of your application you fully control at this point.</p>
+  </section>
+
+  <section class="grade-section">
+    <h2>What counts</h2>
+    <p>Grades! Don't think that since you already submitted your college applications, your grades don't matter anymore. Colleges can still withdraw offers if they drop a lot.</p>
+    <p>"Senioritis" is real, and almost everyone feels it. That's normal — just don't let it show up in your transcript. A steep drop in grades is the one thing that can still cost you an admitted spot.</p>
+  </section>
+
+  <section class="grade-section">
+    <h2>Tests and deadlines</h2>
+    <ul>
+      <li>Retakes for the ACT and SAT are in the fall</li>
+      <li>Financial aid forms also open in the fall</li>
+      <li>Application deadlines vary by school. Some offer earlier options, like early decision or early action</li>
+    </ul>
+  </section>
+
+  <nav class="grade-nav">
+    <a class="back" href="/timeline">← Back to the timeline</a>
+  </nav>
+</article>
+
+<style>
+:root{
+  --paper:#FAF4EA;
+  --ink:#12283D;
+  --ink-soft:#4A5C70;
+  --ink-faint:#7A8899;
+  --rule:#E4D9C6;
+  --g6:#E6F1FB;
+  --g7:#B5D4F4;
+  --g8:#85B7EB;
+  --g9:#378ADD;
+  --g10:#185FA5;
+  --g11:#0C447C;
+  --g12:#042C53;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Inter,system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.grade-page{max-width:640px;margin:0 auto;padding:80px 24px 120px}
+.grade-head{text-align:center;margin-bottom:56px}
+.grade-badge{
+  width:48px;height:48px;margin:0 auto 20px;border-radius:50%;
+  background:var(--g12);border:1px solid var(--g12);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:Fraunces,serif;font-weight:600;font-size:20px;
+}
+.eyebrow{display:block;font-size:13px;font-weight:500;color:var(--g10);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:14px}
+.grade-head h1{font-family:Fraunces,serif;font-weight:700;font-size:34px;line-height:1.2;margin:0 0 14px;letter-spacing:-0.01em;text-wrap:balance}
+.lede{font-size:16px;line-height:1.6;color:var(--ink-soft);margin:0}
+
+.grade-section{margin-bottom:40px}
+.grade-section h2{font-family:Fraunces,serif;font-weight:600;font-size:19px;color:var(--g10);margin:0 0 12px}
+.grade-section p{font-size:15.5px;line-height:1.65;color:var(--ink);margin:0 0 12px}
+.grade-section p:last-child{margin-bottom:0}
+.grade-section ul{margin:0;padding-left:20px}
+.grade-section li{font-size:15.5px;line-height:1.65;color:var(--ink);margin-bottom:8px}
+.grade-section li:last-child{margin-bottom:0}
+
+.grade-nav{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.back{font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
+.back:hover{text-decoration:underline}
+.back:focus-visible{outline:2px solid var(--g10);outline-offset:3px}
+.next{font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
+.next:hover{text-decoration:underline}
+.next:focus-visible{outline:2px solid var(--g10);outline-offset:3px}
+
+@media (max-width:640px){
+  .grade-page{padding:56px 20px 96px}
+  .grade-head h1{font-size:28px}
+}
+</style>
+</body>
+</html>
