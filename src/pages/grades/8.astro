@@ -1,5 +1,34 @@
 ---
 import TopNav from '../../components/TopNav.astro';
+import SEO from '../../components/SEO.astro';
+
+const faq = [
+	{
+		q: "What should I do in 8th grade to prepare for college?",
+		a: "Take Algebra I if you can — it's what makes calculus reachable in high school. Read for fun constantly, build good study habits, and plan your first year of high school courses carefully, since colleges look at all four years."
+	},
+	{
+		q: "What do people get wrong about 8th grade and college prep?",
+		a: "Picking high school classes without realizing it's a four-year commitment. The classes you choose as a freshman can lock you out of classes later on, like calculus. Picking a direction now doesn't lock you into it forever, though — plenty of people change their minds in high school."
+	},
+	{
+		q: "Does 8th grade count on a college application?",
+		a: "Not much — Algebra I may show on some transcripts, but otherwise 8th grade is about building the study habits and academic foundation that carry into high school, which is when grades and test scores start to matter."
+	},
+	{
+		q: "What tests or deadlines matter in 8th grade?",
+		a: "Testing into the highest math class possible for freshman year, if your school offers that, plus state testing in some districts. Nothing here goes on a college application."
+	}
+];
+const faqSchema = {
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	"mainEntity": faq.map((item) => ({
+		"@type": "Question",
+		"name": item.q,
+		"acceptedAnswer": { "@type": "Answer", "text": item.a }
+	}))
+};
 ---
 
 <html lang="en">
@@ -8,7 +37,12 @@ import TopNav from '../../components/TopNav.astro';
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="generator" content={Astro.generator} />
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-	<title>How to: 8th grade — Six Years Out</title>
+	<SEO
+		title="8th Grade College Prep: Gearing Up for High School — Six Years Out"
+		description="Math matters, and so does choosing your high school classes appropriately — what to know before you build your four-year plan."
+		path="/grades/8"
+	/>
+	<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500&display=swap">

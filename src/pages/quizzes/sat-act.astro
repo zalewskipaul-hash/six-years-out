@@ -1,5 +1,6 @@
 ---
 import TopNav from '../../components/TopNav.astro';
+import SEO from '../../components/SEO.astro';
 ---
 
 <html lang="en">
@@ -8,8 +9,11 @@ import TopNav from '../../components/TopNav.astro';
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="generator" content={Astro.generator} />
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-	<title>SAT vs ACT Quiz — Six Years Out</title>
-	<meta name="description" content="8 questions, 5 minutes, and a little bit of brain power. Find out which test actually fits you." />
+	<SEO
+		title="SAT vs ACT Quiz: Which Test Is Right for You? — Six Years Out"
+		description="8 questions, 5 minutes, and a little bit of brain power. Find out which test actually fits you."
+		path="/quizzes/sat-act"
+	/>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500&display=swap">
@@ -18,7 +22,14 @@ import TopNav from '../../components/TopNav.astro';
 <TopNav current="quizzes" />
 
 <main class="quiz-wrap">
-  <div id="quiz-root"></div>
+  <div id="quiz-root">
+    <div class="intro">
+      <span class="eyebrow">Quiz</span>
+      <h1>SAT vs ACT. Which one is right for you?</h1>
+      <p>8 questions, 5 minutes, and a little bit of brain power. Personalized results designed to tell you exactly where to go next.</p>
+      <button class="btn" id="start-btn">Start the quiz</button>
+    </div>
+  </div>
 </main>
 
 <style is:global>

@@ -1,5 +1,6 @@
 ---
 import TopNav from '../components/TopNav.astro';
+import SEO from '../components/SEO.astro';
 
 const grades = [
   { n: 6, href: '/grades/6', color: '#E6F1FB', border: '#B5D4F4', text: '#042C53', ready: true },
@@ -18,7 +19,11 @@ const grades = [
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="generator" content={Astro.generator} />
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-	<title>Grade Pages — Six Years Out</title>
+	<SEO
+		title="Grade-by-Grade College Prep Guides — Six Years Out"
+		description="One guide per grade, 6th through 12th — what to do now, what most people get wrong, and what actually counts for college."
+		path="/grades"
+	/>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500&display=swap">

@@ -1,5 +1,34 @@
 ---
 import TopNav from '../../components/TopNav.astro';
+import SEO from '../../components/SEO.astro';
+
+const faq = [
+	{
+		q: "What should I do in 10th grade to prepare for college?",
+		a: "Take a free practice SAT and ACT to get a baseline and see which test fits you. Keep your grades up, take on a real leadership role in your main activity, and consider a competition, summer program, or internship in your field."
+	},
+	{
+		q: "What do people get wrong about 10th grade and college prep?",
+		a: "Worrying about the PSAT 10 score, which doesn't count toward anything — it's purely practice, and different from the PSAT/NMSQT taken in 11th grade, which is the one that counts toward National Merit."
+	},
+	{
+		q: "Does 10th grade count on a college application?",
+		a: "Yes — 10th grade is the first full year of grades colleges really consider, since 9th grade is often treated as a transition period. Course rigor also starts to matter more this year."
+	},
+	{
+		q: "What tests or deadlines matter in 10th grade?",
+		a: "PSAT 10 in the spring and AP exams in May, plus a practice SAT and ACT to find a baseline score."
+	}
+];
+const faqSchema = {
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	"mainEntity": faq.map((item) => ({
+		"@type": "Question",
+		"name": item.q,
+		"acceptedAnswer": { "@type": "Answer", "text": item.a }
+	}))
+};
 ---
 
 <html lang="en">
@@ -8,7 +37,12 @@ import TopNav from '../../components/TopNav.astro';
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="generator" content={Astro.generator} />
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-	<title>How to: 10th grade — Six Years Out</title>
+	<SEO
+		title="10th Grade College Prep: Go Deeper, Not Wider — Six Years Out"
+		description="Take a baseline SAT and ACT, take on real leadership, and keep your grades up — what actually matters in 10th grade."
+		path="/grades/10"
+	/>
+	<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500&display=swap">

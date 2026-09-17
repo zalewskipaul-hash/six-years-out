@@ -1,5 +1,34 @@
 ---
 import TopNav from '../../components/TopNav.astro';
+import SEO from '../../components/SEO.astro';
+
+const faq = [
+	{
+		q: "What should I do in 9th grade to prepare for college?",
+		a: "Map out a four-year plan with your school counselor so you understand graduation requirements, GPA, and the path to AP, IB, and Honors classes. Go deep on one or two interests instead of spreading thin, and consider starting a passion project."
+	},
+	{
+		q: "What do people get wrong about 9th grade and college prep?",
+		a: "Joining eight clubs freshman year instead of centering on one or two passion-driven extracurriculars — that exploration should have started around 7th grade. If you're still figuring out what you like, you're not behind."
+	},
+	{
+		q: "Does 9th grade count on a college application?",
+		a: "Yes — 9th grade is the first year of grades colleges actually see, and it can determine whether you can take Honors, IB, and AP classes later. A rough freshman year can be forgiven if you show steady improvement afterward."
+	},
+	{
+		q: "What tests or deadlines matter in 9th grade?",
+		a: "Some schools give the PSAT 8/9, which is just practice — colleges never see the score."
+	}
+];
+const faqSchema = {
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	"mainEntity": faq.map((item) => ({
+		"@type": "Question",
+		"name": item.q,
+		"acceptedAnswer": { "@type": "Answer", "text": item.a }
+	}))
+};
 ---
 
 <html lang="en">
@@ -8,7 +37,12 @@ import TopNav from '../../components/TopNav.astro';
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="generator" content={Astro.generator} />
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-	<title>How to: 9th grade — Six Years Out</title>
+	<SEO
+		title="9th Grade College Prep: Your Transcript Starts — Six Years Out"
+		description="9th grade is the first year colleges will actually see. Here's how to map your four-year plan and what actually counts."
+		path="/grades/9"
+	/>
+	<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500&display=swap">

@@ -1,5 +1,34 @@
 ---
 import TopNav from '../../components/TopNav.astro';
+import SEO from '../../components/SEO.astro';
+
+const faq = [
+	{
+		q: "What should I do in 12th grade to prepare for college?",
+		a: "Write your essays over the summer, before school starts. Finalize your recommendation letters, college list, and application, and track every school's deadlines — early decision and early action usually land in November, well before regular decision in January."
+	},
+	{
+		q: "What do people get wrong about 12th grade and college prep?",
+		a: "Procrastinating and writing essays in October instead of over the summer. Essays are the only part of the application you fully control at this point, so don't leave them for last."
+	},
+	{
+		q: "Does senior year still count for college?",
+		a: "Yes — colleges can withdraw an offer if grades drop significantly. \"Senioritis\" is normal, but a steep drop in your transcript is the one thing that can still cost you an admitted spot."
+	},
+	{
+		q: "What tests or deadlines matter in 12th grade?",
+		a: "SAT and ACT retakes happen in the fall, financial aid forms open in the fall, and application deadlines vary by school — some offer earlier options like early decision or early action."
+	}
+];
+const faqSchema = {
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	"mainEntity": faq.map((item) => ({
+		"@type": "Question",
+		"name": item.q,
+		"acceptedAnswer": { "@type": "Answer", "text": item.a }
+	}))
+};
 ---
 
 <html lang="en">
@@ -8,7 +37,12 @@ import TopNav from '../../components/TopNav.astro';
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="generator" content={Astro.generator} />
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-	<title>How to: 12th grade — Six Years Out</title>
+	<SEO
+		title="12th Grade College Prep: You Submit Your Applications — Six Years Out"
+		description="Senior year still counts. Here's what to finalize, what most people get wrong, and the deadlines that actually matter."
+		path="/grades/12"
+	/>
+	<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500&display=swap">
