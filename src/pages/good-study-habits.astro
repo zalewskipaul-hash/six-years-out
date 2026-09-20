@@ -10,8 +10,8 @@ import SEO from '../components/SEO.astro';
 	<meta name="generator" content={Astro.generator} />
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	<SEO
-		title="Good Study Habits for High School — Six Years Out"
-		description="What actually works, and how to start building the habit before high school makes it non-negotiable."
+		title="10 Study Techniques That Actually Work — Six Years Out"
+		description="Ten study techniques split into two goals — staying focused while you study, and actually remembering what you learned — plus an honest note about which ones are worth trying."
 		path="/good-study-habits"
 	/>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,12 +21,57 @@ import SEO from '../components/SEO.astro';
 <body>
 <TopNav current="articles" />
 
-<section class="placeholder">
-  <span class="eyebrow">Coming soon</span>
-  <h1>Good study habits</h1>
-  <p>What actually works, and how to start building the habit before high school makes it non-negotiable.</p>
+<article class="post">
+  <header class="post-head">
+    <span class="eyebrow">Article</span>
+    <h1>10 study techniques that actually work</h1>
+    <p class="dek">Split into two goals — staying focused while you study, and actually remembering what you learned.</p>
+  </header>
+
+  <div class="post-body">
+    <p>Most advice about studying just says "study harder," which isn't actually advice. So we split ours into two real goals: techniques to help you stay focused while you're studying, and techniques to help you actually retain what you studied. Ten total, five for each.</p>
+
+    <h2>To stay focused</h2>
+
+    <h3>1. The "Pomodoro" technique</h3>
+    <p>Study with high intensity for 25 minutes, then take a short, five-minute break. Repeating this process ensures blocks of focused work with an actual result. It improves focus, reduces procrastination, and prevents burnout.</p>
+
+    <h3>2. Get organized before you study</h3>
+    <p>Ever sit down to study and realize you don't even have a pencil? Yeah, well we all know one thing leads to another, and before you know it, you'll have wasted an hour. Instead, before you begin, make sure you have all your materials, a clean room, and your chores done.</p>
+
+    <h3>3. Break tasks down</h3>
+    <p>Don't just say "I need to study for my math test." Instead, write a small to-do list with 3–5 small, bite-sized goals before you begin. Doing this ensures your brain actually knows what you are attempting to do and can process accordingly.</p>
+
+    <h3>4. Put your phone away</h3>
+    <p>Study time is for studying, not doom-scrolling. We've all heard the "silence your phone" spiel, but go a step further and put it completely away, or power it off. Putting your phone away doesn't just fight the urge to check social media or messages — it also protects your cognitive capacity.</p>
+
+    <h3>5. Let your brain rest</h3>
+    <p>There's a point in the day when your brain truly can't process any more information. As teens and pre-teens, all of us should be getting at least 8 hours of quality sleep per night, if not more. So at a certain time of night, you just need to turn off the computer and get a good night's sleep.</p>
+
+    <h2>To retain information</h2>
+
+    <h3>1. Active recall</h3>
+    <p>Close the textbook and test yourself on the content. Forcing your brain to actually recall information strengthens neural pathways much more than any passive reading will.</p>
+
+    <h3>2. Teach others</h3>
+    <p>Explain the concept to someone, or just aloud. Explaining it as if you would to a beginner exposes gaps in your knowledge and understanding of the topic.</p>
+
+    <h3>3. The "1-3-5-7" rule</h3>
+    <p>On day one, simply learn the new content in an initial study session. On day 3 (2 days after day one), do your first review to catch memories before they fade, in a second study session. In your second-to-last study session, day five (2 days after day three), do your second review to reinforce connections and build mental pathways. On day seven (2 days after day five), in your last study session, do your final scheduled review. Following this strategy moves content and information from your short-term memory into your long-term memory.</p>
+
+    <h3>4. Active note-taking</h3>
+    <p>Don't just copy from the textbook. Instead, paraphrase or summarize the content in your notes to get your brain working. Some different note-taking formats to try: Cornell notes (lets you see higher-level concepts by writing questions, making connections, and identifying patterns), mapping (create a bubble map of the concepts from class, and force your brain to recognize how they relate to each other), and sentence or paragraph notes (write down a key point or brief summary of each sentence or paragraph about what you want to remember).</p>
+
+    <h3>5. The "Leitner" system</h3>
+    <p>Use a physical or digital flashcard system with boxes. Correctly answered questions move to a box that needs to be reviewed less frequently, whereas incorrectly answered questions are put into a box that can be reviewed more frequently.</p>
+
+    <h2>In short</h2>
+
+    <p>The study techniques above aren't even a dent in the ones out there, and are simply our recommendations. Study techniques are truly a preference-based thing, so find which ones work for you. Just because they work for your friends doesn't mean they'll work for you, so don't be afraid to try something new and explore.</p>
+  </div>
+
   <a class="back" href="/articles">← Back to articles</a>
-</section>
+</article>
 
 <style>
 :root{
@@ -53,17 +98,25 @@ body{
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
-.placeholder{max-width:560px;margin:0 auto;padding:120px 24px 140px;text-align:center}
-.eyebrow{display:block;font-size:13px;font-weight:500;color:var(--g10);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
-.placeholder h1{font-family:Fraunces,serif;font-weight:700;font-size:34px;line-height:1.2;margin:0 0 16px;letter-spacing:-0.01em;text-wrap:balance}
-.placeholder p{font-size:15.5px;line-height:1.6;color:var(--ink-soft);margin:0 0 32px}
-.back{font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
+.post{max-width:640px;margin:0 auto;padding:80px 24px 120px}
+.post-head{text-align:center;margin-bottom:48px}
+.eyebrow{display:block;font-size:13px;font-weight:500;color:var(--g10);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:14px}
+.post-head h1{font-family:Fraunces,serif;font-weight:700;font-size:34px;line-height:1.2;margin:0 0 14px;letter-spacing:-0.01em;text-wrap:balance}
+.dek{font-size:16px;line-height:1.6;color:var(--ink-soft);margin:0}
+
+.post-body p{font-size:15.5px;line-height:1.7;color:var(--ink);margin:0 0 20px}
+.post-body h2{font-family:Fraunces,serif;font-weight:600;font-size:22px;color:var(--g10);margin:40px 0 16px}
+.post-body h3{font-family:Fraunces,serif;font-weight:600;font-size:17px;color:var(--ink);margin:0 0 10px}
+.post-body em{font-style:normal;font-weight:600}
+
+.back{display:inline-block;margin-top:8px;font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
 .back:hover{text-decoration:underline}
 .back:focus-visible{outline:2px solid var(--g10);outline-offset:3px}
 
 @media (max-width:640px){
-  .placeholder{padding:80px 20px 96px}
-  .placeholder h1{font-size:28px}
+  .post{padding:56px 20px 96px}
+  .post-head h1{font-size:28px}
+  .post-body h2{font-size:20px}
 }
 </style>
 </body>
