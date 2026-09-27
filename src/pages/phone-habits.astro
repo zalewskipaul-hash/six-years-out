@@ -21,12 +21,51 @@ import SEO from '../components/SEO.astro';
 <body>
 <TopNav current="articles" />
 
-<section class="placeholder">
-  <span class="eyebrow">Coming soon</span>
-  <h1>Why being on your phone isn't helping you prepare for college</h1>
-  <p>Screen time feels harmless in the moment. Here's what it's actually costing you.</p>
+<article class="post">
+  <header class="post-head">
+    <span class="eyebrow">Article</span>
+    <h1>Why being on your phone isn't helping you prepare for college</h1>
+    <p class="dek">Screen time feels harmless in the moment. Here's what it's actually costing you — and what to do instead.</p>
+  </header>
+
+  <div class="post-body">
+    <p>According to the American Academy of Pediatrics, teens ages 13–18 average 8 hours and 39 minutes of screen time per day. That's 8 hours and 39 minutes that could be going toward studying, homework, or sleep instead.</p>
+
+    <h2>The math doesn't add up</h2>
+
+    <p>The average school day in America is about 6.5 hours. If a teenager is in school for 6.5 hours and on their phone for another 8.5, those two activities alone take up 15 hours of the day.</p>
+
+    <p>A day only has 24 hours. If the average teen does nothing but go to school, scroll on their phone, and sleep, that leaves exactly 8 hours for sleep — the bare minimum recommended for teens.</p>
+
+    <p>But that's assuming a teen does nothing else all day. Once you factor in eating, hanging out with friends, sports, and everything else that actually fills a normal day, how much sleep is realistically left? And how does that affect college applications?</p>
+
+    <p>The real number is closer to 6.5 hours a night, which puts the average teen in a 1 to 2.5 hour sleep deficit every single night. Aside from lowering your quality of life, that deficit is linked to lower performance in school, more behavioral and emotional difficulties, and higher rates of depression and obesity — and it's also been shown to skew college outcomes.</p>
+
+    <h2>It's not just how much time — it's whose choice it is</h2>
+
+    <p>This may not apply to you — maybe you're the kid with five minutes of screen time a day. But roughly 50.4% of teens ages 13 to 18 spend four or more hours a day on their phone for non-educational purposes.</p>
+
+    <p>And it's not all on the kid, either. According to the Pew Research Center, parents of younger teens (ages 13–14) are far more likely to limit screen time, with 62% doing so. But for teens ages 15–17, only 37% of parents say they regulate their child's screen time — meaning the older you get, the more that choice becomes entirely yours.</p>
+
+    <h2>Future you is watching</h2>
+
+    <p>When it comes time to actually apply to college, a lot of those same teens are going to wish they hadn't spent so much time on their phone. A clear majority of Gen Z and young adults now look back and realize how much of their life they lost to screen time.</p>
+
+    <p>Here's an experiment worth trying. Close your eyes, and imagine it's 10 years in the future, and your life is exactly the opposite of what you wanted it to be. You have a job you hate, you don't like the people around you, and you're not happy at all. One night at 3 a.m., you're on your phone, and you come across a photo of yourself from 10 years ago. You think: if I could go back 10 years and change my life entirely, I would. Now open your eyes — you just did.</p>
+
+    <p>That mindset has helped a lot of people see the bigger picture and turn things around. You might be wondering what any of this has to do with your screen time. Our answer: everything. Replay that same scenario, except this time, you didn't get into your dream college, and you look back and realize it's because you procrastinated and spent too much time on your phone. Don't be that future version of yourself.</p>
+
+    <h2>What actually helps</h2>
+
+    <p>You don't have to quit your phone cold turkey to fix this — a few small, specific habits go a long way. Put your phone in another room while you study, not just on silent, so it's not sitting there tempting you. Pair phone-free blocks with something like the <a href="/good-study-habits">Pomodoro technique</a>, so focus time has a clear start and end. Turn off notifications during school hours instead of just muting the sound. And charge your phone outside your bedroom at night, so it's not the last thing you look at before bed or the first thing you reach for in the morning.</p>
+
+    <h2>In short</h2>
+
+    <p>Choose you, and put the phone down. This isn't about cutting out screen time entirely — it's about thinking honestly about your future, and what's actually best for you. Touch grass, read a book, or go to bed. Future you will thank you.</p>
+  </div>
+
   <a class="back" href="/articles">← Back to articles</a>
-</section>
+</article>
 
 <style>
 :root{
@@ -53,17 +92,24 @@ body{
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
-.placeholder{max-width:560px;margin:0 auto;padding:120px 24px 140px;text-align:center}
-.eyebrow{display:block;font-size:13px;font-weight:500;color:var(--g10);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
-.placeholder h1{font-family:Fraunces,serif;font-weight:700;font-size:34px;line-height:1.2;margin:0 0 16px;letter-spacing:-0.01em;text-wrap:balance}
-.placeholder p{font-size:15.5px;line-height:1.6;color:var(--ink-soft);margin:0 0 32px}
-.back{font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
+.post{max-width:640px;margin:0 auto;padding:80px 24px 120px}
+.post-head{text-align:center;margin-bottom:48px}
+.eyebrow{display:block;font-size:13px;font-weight:500;color:var(--g10);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:14px}
+.post-head h1{font-family:Fraunces,serif;font-weight:700;font-size:34px;line-height:1.2;margin:0 0 14px;letter-spacing:-0.01em;text-wrap:balance}
+.dek{font-size:16px;line-height:1.6;color:var(--ink-soft);margin:0}
+
+.post-body p{font-size:15.5px;line-height:1.7;color:var(--ink);margin:0 0 20px}
+.post-body h2{font-family:Fraunces,serif;font-weight:600;font-size:22px;color:var(--g10);margin:40px 0 16px}
+.post-body a{color:var(--g10)}
+
+.back{display:inline-block;margin-top:8px;font-size:14px;color:var(--g10);text-decoration:none;font-weight:500}
 .back:hover{text-decoration:underline}
 .back:focus-visible{outline:2px solid var(--g10);outline-offset:3px}
 
 @media (max-width:640px){
-  .placeholder{padding:80px 20px 96px}
-  .placeholder h1{font-size:28px}
+  .post{padding:56px 20px 96px}
+  .post-head h1{font-size:28px}
+  .post-body h2{font-size:20px}
 }
 </style>
 </body>
