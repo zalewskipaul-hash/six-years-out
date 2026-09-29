@@ -1,5 +1,6 @@
 {
   "name": "six-years-out",
+  "account_id": "701e2b908023f786eb86bc7c2eafa267",
   "compatibility_date": "2026-08-12",
   "assets": {
     "directory": "./dist"
